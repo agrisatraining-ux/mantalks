@@ -184,6 +184,35 @@ function animateStats() {
 }
 animateStats();
 
+// ── Hero Carousel "Rolling Ball" Animation ──────────────────────────────────
+function initHeroCarousel() {
+  const container = document.getElementById('heroCarousel');
+  const images = document.querySelectorAll('.hero-carousel-img');
+  if (!container || images.length < 2) return;
+
+  let currentIndex = 0;
+  const intervalTime = 4000; // Change every 4 seconds
+
+  setInterval(() => {
+    // 1. Start the roll animation
+    container.classList.add('rolling');
+
+    // 2. Wait for the roll to reach midpoint (or end) then swap image
+    // Our CSS transition is 0.8s, so 400ms is a good midpoint for the swap
+    setTimeout(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 400);
+
+    // 3. Remove the rolling class after animation finishes to reset for next time
+    setTimeout(() => {
+      container.classList.remove('rolling');
+    }, 850);
+  }, intervalTime);
+}
+initHeroCarousel();
+
 // ── Floating card stagger animation  ─────────────────────────────────────────
 const floatingCards = document.querySelectorAll('.f-card');
 floatingCards.forEach((card, i) => {
