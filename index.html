@@ -24,7 +24,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#guidelines">Guidelines</a></li>
-        <li><a href="#join" class="nav-cta">Join the Circle</a></li>
+        <li><button class="nav-cta open-modal">Join the Circle</button></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -34,7 +34,7 @@
       <a href="#about" class="mobile-link">About</a>
       <a href="#how-it-works" class="mobile-link">How It Works</a>
       <a href="#guidelines" class="mobile-link">Guidelines</a>
-      <a href="#join" class="mobile-link mobile-cta">Join the Circle</a>
+      <button class="mobile-link mobile-cta open-modal">Join the Circle</button>
     </div>
   </nav>
 
@@ -57,10 +57,10 @@
         Because every voice deserves to be heard.
       </p>
       <div class="hero-actions reveal">
-        <a href="#join" class="btn-primary" id="hero-cta">
+        <button class="btn-primary open-modal" id="hero-cta">
           <span>Join the Circle</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        </button>
         <a href="#about" class="btn-ghost">Learn More</a>
       </div>
       <div class="hero-tags reveal">
@@ -75,10 +75,7 @@
         <div class="ring ring-2"></div>
         <div class="ring ring-3"></div>
         <div class="inner-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M17 8h2a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 3V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-            <path d="M3 8h11a2 2 0 012 2v4a2 2 0 01-2 2H6l-3 2V8z"/>
-          </svg>
+          <img src="https://www.agrisa.co.in/assets/pro2-XbHl214G.jpg" alt="Brotherhood" class="hero-img" />
         </div>
       </div>
       <div class="floating-cards">
@@ -131,11 +128,9 @@
             creates a <strong>confidential, judgment-free space</strong> where men can connect anonymously,
             in <strong>English or Tamil</strong>, to share what's on their minds.
           </p>
-          <p>
-            Whether it's venting feelings, seeking peer advice, or simply finding a buddy to talk to,
-            the platform offers structured sessions that begin with one-on-one conversations and gradually
-            expand into small circles and larger groups.
-          </p>
+          <div class="about-image reveal">
+            <img src="https://www.agrisa.co.in/assets/pro4-Bn99UTpy.jpg" alt="Supportive Group" class="about-img" />
+          </div>
           <p class="highlight-text">
             This is not therapy. This is not counselling.<br/>
             <strong>This is a listening circle — a place to be heard.</strong>
@@ -279,30 +274,31 @@
   </section>
 
   <!-- ─── JOIN ─── -->
-  <section class="join" id="join">
-    <div class="orb orb-j1"></div>
-    <div class="orb orb-j2"></div>
-    <div class="container">
-      <div class="section-label reveal">Book Your Session</div>
-      <h2 class="section-title reveal">
-        Take the first step<br/>
-        <span class="gradient-text">toward openness.</span>
-      </h2>
-      <p class="join-sub reveal">
-        Block your slot, choose your language, and enter a circle of trust.<br/>
-        You can use a pseudonym — no real name needed.
-      </p>
-      <form class="join-form reveal" id="joinForm" novalidate>
+      <div class="cta-row reveal" style="text-align: center; margin-top: 48px;">
+        <button class="btn-primary btn-large open-modal">Join the Circle Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MODAL (POPUP FORM) ─── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <div class="section-label">Book Your Session</div>
+        <h2 class="modal-title">Take the first step <span class="gradient-text">toward openness.</span></h2>
+        <p class="modal-sub">Block your slot, choose your language, and enter a circle of trust.</p>
+      </div>
+      
+      <form class="join-form" id="joinForm" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label for="display-name">Your Name / Pseudonym</label>
-            <input type="text" id="display-name" name="displayName" placeholder="e.g. Warrior77 or Karthik" required />
-            <span class="field-note">Real name optional. Use anything you're comfortable with.</span>
+            <input type="text" id="display-name" name="displayName" placeholder="e.g. Warrior77" required />
           </div>
           <div class="form-group">
-            <label for="email">Email (for booking confirmation)</label>
+            <label for="email">Email address</label>
             <input type="email" id="email" name="email" placeholder="you@example.com" required />
-            <span class="field-note">We won't spam you. Ever.</span>
           </div>
         </div>
         <div class="form-row">
@@ -322,7 +318,6 @@
               <option value="vent">I want to vent</option>
               <option value="advice">I'd like peer advice</option>
               <option value="listen">I just want to connect</option>
-              <option value="listen-only">I want to listen to others</option>
             </select>
           </div>
         </div>
@@ -330,7 +325,7 @@
           <div class="form-group">
             <label for="time-pref">Preferred Time Slot</label>
             <select id="time-pref" name="timePref" required>
-              <option value="" disabled selected>Select a preferred time</option>
+              <option value="" disabled selected>Select a time</option>
               <option value="morning">Morning (6am – 10am)</option>
               <option value="noon">Afternoon (12pm – 3pm)</option>
               <option value="evening">Evening (6pm – 9pm)</option>
@@ -340,26 +335,20 @@
           <div class="form-group">
             <label for="camera">Camera Preference</label>
             <select id="camera" name="camera">
-              <option value="" disabled selected>Camera on or off?</option>
-              <option value="off">Camera Off (anonymous)</option>
+              <option value="off" selected>Camera Off (anonymous)</option>
               <option value="on">Camera On</option>
               <option value="flexible">No preference</option>
             </select>
           </div>
         </div>
-        <div class="form-group full-width">
-          <label for="message">Anything you'd like us to know? (optional)</label>
-          <textarea id="message" name="message" rows="3" placeholder="Share anything that might help us pair you better..."></textarea>
-        </div>
-        <div class="form-consent reveal">
+        <div class="form-consent">
           <input type="checkbox" id="consent" name="consent" required />
           <label for="consent">
-            I agree to the <a href="#guidelines">Community Guidelines</a> and understand 
-            this is a peer-support space, not professional therapy or counselling.
+            I agree to the <a href="#guidelines" class="link">Community Guidelines</a>.
           </label>
         </div>
         <div class="form-actions">
-          <button type="submit" class="btn-primary btn-large" id="submit-btn">
+          <button type="submit" class="btn-primary btn-full" id="submit-btn">
             <span class="btn-text">Start Your Session</span>
             <span class="btn-loading" style="display:none">Submitting...</span>
           </button>
@@ -367,11 +356,11 @@
         <div class="form-success" id="formSuccess" style="display:none">
           <div class="success-icon">✓</div>
           <h3>You're in the circle.</h3>
-          <p>We'll reach out within 24 hours with your session details. See you in the circle.</p>
+          <p>We'll reach out within 24 hours with your session details.</p>
         </div>
       </form>
     </div>
-  </section>
+  </div>
 
   <!-- ─── FOOTER ─── -->
   <footer class="footer">
@@ -391,7 +380,7 @@
         <a href="#about">About</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#guidelines">Guidelines</a>
-        <a href="#join">Join</a>
+        <button class="footer-cta open-modal">Join</button>
       </div>
       <p class="footer-note">
         This is a voluntary peer-support initiative. It is not a substitute for professional mental health services.<br/>

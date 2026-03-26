@@ -38,13 +38,43 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// ── Hamburger Menu ────────────────────────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('open');
+});
+
+// ── Modal Logic ──────────────────────────────────────────────────────────────
+const modalOverlay = document.getElementById('modalOverlay');
+const closeModalBtn = document.getElementById('closeModal');
+const openModalBtns = document.querySelectorAll('.open-modal');
+
+function openModal() {
+  modalOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent scroll
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('active');
+  document.body.style.overflow = ''; // Restore scroll
+}
+
+openModalBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openModal();
+  });
+});
+
+closeModalBtn.addEventListener('click', closeModal);
+
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+    closeModal();
+  }
 });
 
 // ── Form Submission ───────────────────────────────────────────────────────────
@@ -88,7 +118,6 @@ joinForm.addEventListener('submit', async (e) => {
     sessionType: joinForm.sessionType.value,
     timePref: joinForm.timePref.value,
     camera: joinForm.camera.value,
-    message: joinForm.message.value.trim(),
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
@@ -115,8 +144,8 @@ joinForm.addEventListener('submit', async (e) => {
     formSuccess.style.display = 'flex';
     formSuccess.classList.add('visible');
 
-    // Scroll to success message
-    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Keep modal open for a moment so they see success, then maybe close?
+    // For now just show success.
   } catch (err) {
     console.error('Submission error:', err);
     btnText.style.display = 'inline';

@@ -1,0 +1,14 @@
+{
+  "name": "mantalks",
+  "version": "1.0.0",
+  "description": "ManTalks - A safe, anonymous space for men to share, listen and connect.",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
