@@ -129,9 +129,18 @@ a { color: inherit; text-decoration: none; }
 }
 .logo-img {
   height: 42px;
-  width: auto;
+  width: 42px;
+  border-radius: 50%;
+  object-fit: cover;
   display: block;
   transition: transform var(--transition);
+  border: 1.2px solid rgba(201,145,61,0.2);
+}
+.logo-text {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
 }
 .nav-logo:hover .logo-img {
   transform: scale(1.05);
@@ -1031,9 +1040,11 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   align-items: center;
   margin-bottom: 24px;
+  gap: 12px;
 }
 .footer-logo .logo-img {
-  height: 58px;
+  height: 52px;
+  width: 52px;
 }
 .footer-taglines {
   font-size: 0.88rem;
