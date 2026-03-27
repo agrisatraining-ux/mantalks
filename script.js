@@ -185,7 +185,18 @@ function animateStats() {
 }
 animateStats();
 
-// Hero Carousel and other animations removed or simplified as per request
+function initHeroCarousel() {
+  const images = document.querySelectorAll('.hero-carousel-img');
+  if (images.length < 2) return;
+  
+  let currentIndex = 0;
+  setInterval(() => {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+  }, 4500); // Smooth change every 4.5s
+}
+initHeroCarousel();
 
 // ── Floating card stagger animation  ─────────────────────────────────────────
 const floatingCards = document.querySelectorAll('.f-card');

@@ -421,7 +421,7 @@ a { color: inherit; text-decoration: none; }
 .ring {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(26,127,90,0.25);
+  border: 2.5px solid rgba(26,127,90,0.3);
   animation: spin-ring linear infinite;
 }
 .ring-1 { width: 440px; height: 440px; animation-duration: 22s; opacity: 0.6; }
