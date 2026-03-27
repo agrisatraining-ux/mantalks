@@ -187,14 +187,26 @@ animateStats();
 
 function initHeroCarousel() {
   const images = document.querySelectorAll('.hero-carousel-img');
-  if (images.length < 2) return;
+  const innerIcon = document.querySelector('.inner-icon');
+  if (images.length < 2 || !innerIcon) return;
   
   let currentIndex = 0;
   setInterval(() => {
-    images[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].classList.add('active');
-  }, 4500); // Smooth change every 4.5s
+    // 1. Start rotation
+    innerIcon.classList.add('rolling');
+    
+    // 2. Swap image after 0.6s (mid-rotation)
+    setTimeout(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 600);
+    
+    // 3. Remove class after animation ends (1.2s)
+    setTimeout(() => {
+      innerIcon.classList.remove('rolling');
+    }, 1200);
+  }, 5000); // Cycle every 5s
 }
 initHeroCarousel();
 
