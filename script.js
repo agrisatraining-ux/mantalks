@@ -114,10 +114,10 @@ joinForm.addEventListener('submit', async (e) => {
   const formData = {
     displayName: joinForm.displayName.value.trim(),
     email: joinForm.email.value.trim(),
+    phone: joinForm.phone.value.trim(),
     language: joinForm.language.value,
     sessionType: joinForm.sessionType.value,
     timePref: joinForm.timePref.value,
-    camera: joinForm.camera.value,
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
