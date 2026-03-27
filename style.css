@@ -127,12 +127,14 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.03em;
   color: var(--text-primary);
 }
-.logo-icon {
-  font-size: 1.6rem;
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: transform var(--transition);
+}
+.nav-logo:hover .logo-img {
+  transform: scale(1.05);
 }
 .nav-links {
   display: flex;
@@ -1026,14 +1028,12 @@ a { color: inherit; text-decoration: none; }
 }
 .footer-logo {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
-  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+.footer-logo .logo-img {
+  height: 58px;
 }
 .footer-taglines {
   font-size: 0.88rem;
