@@ -1,6 +1,7 @@
 {
   "name": "mantalks",
   "version": "1.0.0",
+  "homepage": "https://mantalks.org",
   "description": "ManTalks - A safe, anonymous space for men to share, listen and connect.",
   "main": "index.html",
   "scripts": {
