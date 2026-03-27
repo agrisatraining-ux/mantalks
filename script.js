@@ -117,6 +117,7 @@ joinForm.addEventListener('submit', async (e) => {
     phone: joinForm.phone.value.trim(),
     language: joinForm.language.value,
     sessionType: joinForm.sessionType.value,
+    date: joinForm.date.value,
     timePref: joinForm.timePref.value,
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
