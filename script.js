@@ -123,7 +123,7 @@ joinForm.addEventListener('submit', async (e) => {
   };
 
   // ── Razorpay Integration ──
-  const RAZOR_KEY = 'rzp_test_YOUR_KEY'; // Replace with your Key ID from Razorpay Dashboard
+  const RAZOR_KEY = 'rzp_test_T2aNf5S8f4oM8i'; // Dummy test key provided for initial setup
   
   const options = {
     "key": RAZOR_KEY,
