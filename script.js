@@ -122,38 +122,66 @@ joinForm.addEventListener('submit', async (e) => {
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
-  // Show loading
-  btnText.style.display = 'none';
-  btnLoading.style.display = 'inline';
-  submitBtn.disabled = true;
+  // ── Razorpay Integration ──
+  const RAZOR_KEY = 'rzp_test_YOUR_KEY'; // Replace with your Key ID from Razorpay Dashboard
+  
+  const options = {
+    "key": RAZOR_KEY,
+    "amount": "39900", // 399 INR in paisa
+    "currency": "INR",
+    "name": "ManTalks",
+    "description": "Session Registration Fee",
+    "image": "logo.png", // Optional: your logo URL
+    "handler": async function (response) {
+      // Payment successful! Now send to Google Sheets
+      formData.paymentId = response.razorpay_payment_id;
+      
+      // Show loading
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+      submitBtn.disabled = true;
 
-  try {
-    if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-    } else {
-      // Simulate network delay for demo
-      await new Promise((r) => setTimeout(r, 1200));
-    }
+      try {
+        if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+          const res = await fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          });
+          
+          // Success
+          joinForm.style.display = 'none';
+          formSuccess.style.display = 'flex';
+          formSuccess.classList.add('visible');
+          
+          // Final: Redirect to WhatsApp after 3 seconds
+          setTimeout(() => {
+            window.location.href = 'https://wa.me/917530054441?text=Hi, I just registered for ManTalks.';
+          }, 3000);
+          
+        } else {
+          alert('Configuration Incomplete: Please add your Google Apps Script URL in script.js');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        alert('Data storage failed, but your payment was successful. Please contact us on WhatsApp with your Payment ID: ' + response.razorpay_payment_id);
+      }
+    },
+    "prefill": {
+      "name": formData.displayName,
+      "email": formData.email,
+      "contact": formData.phone
+    },
+    "theme": { "color": "#1A7F5A" }
+  };
 
-    // Success
-    joinForm.style.display = 'none';
-    formSuccess.style.display = 'flex';
-    formSuccess.classList.add('visible');
-
-    // Keep modal open for a moment so they see success, then maybe close?
-    // For now just show success.
-  } catch (err) {
-    console.error('Submission error:', err);
-    btnText.style.display = 'inline';
-    btnLoading.style.display = 'none';
-    submitBtn.disabled = false;
-    alert('Something went wrong. Please try again or contact us directly.');
-  }
+  const rzp = new Razorpay(options);
+  rzp.on('payment.failed', function (response) {
+    alert('Payment failed: ' + response.error.description);
+  });
+  
+  rzp.open();
 });
 
 // Remove error class on input
