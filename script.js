@@ -85,7 +85,7 @@ const btnLoading = submitBtn.querySelector('.btn-loading');
 const formSuccess = document.getElementById('formSuccess');
 
 // Google Sheets Web App URL — replace with your deployed script URL
-const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
 
 joinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
