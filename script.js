@@ -157,7 +157,7 @@ joinForm.addEventListener('submit', async (e) => {
           
           // Final: Redirect to WhatsApp after 3 seconds
           setTimeout(() => {
-            window.location.href = 'https://wa.me/917530054441?text=Hi, I just registered for ManTalks.';
+            window.location.href = 'https://wa.me/919840600638?text=Hi, I just registered for ManTalks.';
           }, 3000);
           
         } else {

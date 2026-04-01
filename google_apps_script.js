@@ -12,7 +12,7 @@
  */
 
 const ADMIN_EMAIL = 'agrisatraining@gmail.com'; // Update this!
-const WHATSAPP_LINK = 'https://wa.me/7639323648'; // Update this!
+const WHATSAPP_LINK = 'https://wa.me/919840600638'; // Update this!
 
 function doPost(e) {
   try {
