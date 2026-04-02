@@ -800,6 +800,151 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.55;
 }
 
+/* ── TESTIMONIALS ────────────────────────────── */
+.testimonials {
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+.testimonials-track-wrapper {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scroll-testimonials 35s linear infinite;
+}
+.testimonials-track:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll-testimonials {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.testimonial-card {
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(201,145,61,0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  width: 320px;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(26,127,90,0.3);
+  box-shadow: 0 16px 48px rgba(26,127,90,0.1);
+}
+.t-quote {
+  font-family: var(--font-head);
+  font-size: 4rem;
+  line-height: 0.8;
+  color: var(--accent-2);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+.testimonial-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.t-author {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-1);
+  letter-spacing: 0.03em;
+}
+
+/* ── PILL BUTTONS ────────────────────────────── */
+.pill-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.pill-group--wrap {
+  flex-wrap: wrap;
+}
+.pill-btn {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 16px;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid rgba(180,160,110,0.3);
+  background: rgba(255,255,255,0.9);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+  white-space: nowrap;
+}
+.pill-btn:hover {
+  border-color: var(--accent-1);
+  color: var(--accent-1);
+  background: rgba(26,127,90,0.06);
+  transform: translateY(-1px);
+}
+.pill-btn.selected {
+  background: linear-gradient(135deg, var(--accent-1), #0f9e60);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(26,127,90,0.3);
+  transform: translateY(-1px);
+}
+
+/* ── STICKY MOBILE CTA ───────────────────────── */
+.sticky-mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  z-index: 900;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  opacity: 0;
+}
+.sticky-mobile-cta.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.sticky-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--accent-1), #0f9e60);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 8px 32px rgba(26,127,90,0.4), 0 2px 8px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.sticky-pill:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(26,127,90,0.5);
+}
+.sticky-price {
+  background: rgba(255,255,255,0.25);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 /* ── CTA ROW ─────────────────────────────────── */
 .cta-row { text-align: center; margin-top: 48px; }
 
@@ -1102,6 +1247,7 @@ a { color: inherit; text-decoration: none; }
   .hamburger { display: flex; }
   .stat-divider { display: none; }
   .stat-item { padding: 14px 20px; }
+  .sticky-mobile-cta { display: block; } /* Show sticky pill on mobile */
 }
 
 @media (max-width: 640px) {
@@ -1119,4 +1265,6 @@ a { color: inherit; text-decoration: none; }
   .stats-strip { flex-direction: column; }
   .vision-block { padding: 36px 28px; }
   .floating-cards { display: none; }
+  .pill-group { flex-wrap: wrap; }
+  .pill-btn { flex: 0 0 auto; min-width: calc(50% - 5px); }
 }

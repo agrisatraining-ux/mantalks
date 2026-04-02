@@ -12,6 +12,34 @@ const observer = new IntersectionObserver(
 );
 reveals.forEach((el) => observer.observe(el));
 
+// ── Pill Button Selection ─────────────────────────────────────────────────────
+document.querySelectorAll('.pill-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const field = btn.dataset.field;
+    // Deselect all sibling pills in the same group
+    document.querySelectorAll(`.pill-btn[data-field="${field}"]`).forEach(b => b.classList.remove('selected'));
+    // Select this one
+    btn.classList.add('selected');
+    // Sync the hidden input value
+    const hiddenInput = document.querySelector(`input[name="${field}"]`);
+    if (hiddenInput) hiddenInput.value = btn.dataset.value;
+  });
+});
+
+// ── Sticky Mobile CTA ─────────────────────────────────────────────────────────
+const stickyMobileCta = document.getElementById('stickyMobileCta');
+const heroSection = document.getElementById('hero');
+if (stickyMobileCta && heroSection) {
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyMobileCta.classList.add('visible');
+    } else {
+      stickyMobileCta.classList.remove('visible');
+    }
+  });
+}
+
 // ── Navbar Transparency on Scroll ────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
