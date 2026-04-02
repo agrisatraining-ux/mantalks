@@ -222,6 +222,59 @@
     </div>
   </section>
 
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label reveal">Real Voices</div>
+      <h2 class="section-title reveal">Men who spoke up<br/><span class="gradient-text">and felt lighter.</span></h2>
+      <div class="testimonials-track-wrapper">
+        <div class="testimonials-track">
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>I never thought I'd talk to a stranger about my stress at work. But this session genuinely helped me feel less alone.</p>
+            <div class="t-author">— K., 34, Chennai</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>Camera off, pseudonym on. No one judged me. I said things I haven't told my closest friends.</p>
+            <div class="t-author">— R., 28, Bangalore</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>I thought men don't cry. I was wrong. This circle made me realise that being heard is powerful.</p>
+            <div class="t-author">— A., 41, Coimbatore</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>தமிழில் பேசினேன். மனசு லேசா இருந்தது. ரொம்ப நன்றி.</p>
+            <div class="t-author">— S., 37, Madurai</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>It wasn't therapy. It was better. Just a human who genuinely listened. I left feeling 10x lighter.</p>
+            <div class="t-author">— P., 31, Hyderabad</div>
+          </div>
+          <!-- Duplicate cards for infinite scroll effect -->
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>I never thought I'd talk to a stranger about my stress at work. But this session genuinely helped me feel less alone.</p>
+            <div class="t-author">— K., 34, Chennai</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>Camera off, pseudonym on. No one judged me. I said things I haven't told my closest friends.</p>
+            <div class="t-author">— R., 28, Bangalore</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="t-quote">&ldquo;</div>
+            <p>I thought men don't cry. I was wrong. This circle made me realise that being heard is powerful.</p>
+            <div class="t-author">— A., 41, Coimbatore</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── GUIDELINES ─── -->
   <section class="guidelines" id="guidelines">
     <div class="container">
@@ -281,6 +334,14 @@
     </div>
   </section>
 
+  <!-- ─── STICKY MOBILE PILL ─── -->
+  <div class="sticky-mobile-cta" id="stickyMobileCta">
+    <button class="sticky-pill open-modal">
+      <span>Join the Circle</span>
+      <span class="sticky-price">₹399</span>
+    </button>
+  </div>
+
   <!-- ─── MODAL (POPUP FORM) ─── -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
@@ -309,22 +370,25 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="language">Preferred Language</label>
-            <select id="language" name="language" required>
-              <option value="" disabled selected>Select a language</option>
-              <option value="english">English</option>
-              <option value="tamil">Tamil</option>
-            </select>
+          <div class="form-group full-width">
+            <label>Preferred Language</label>
+            <div class="pill-group" id="language-pills">
+              <button type="button" class="pill-btn" data-value="english" data-field="language">🇬🇧 English</button>
+              <button type="button" class="pill-btn" data-value="tamil" data-field="language">🇮🇳 Tamil</button>
+              <button type="button" class="pill-btn" data-value="hindi" data-field="language">🙏 Hindi</button>
+            </div>
+            <input type="hidden" id="language" name="language" required />
           </div>
-          <div class="form-group">
-            <label for="session-type">Session Type</label>
-            <select id="session-type" name="sessionType" required>
-              <option value="" disabled selected>What brings you here?</option>
-              <option value="vent">I want to vent</option>
-              <option value="advice">I'd like peer advice</option>
-              <option value="listen">I just want to connect</option>
-            </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>What brings you here?</label>
+            <div class="pill-group" id="session-pills">
+              <button type="button" class="pill-btn" data-value="vent" data-field="sessionType">🎙️ I want to vent</button>
+              <button type="button" class="pill-btn" data-value="advice" data-field="sessionType">💬 Peer advice</button>
+              <button type="button" class="pill-btn" data-value="listen" data-field="sessionType">🤝 Just connect</button>
+            </div>
+            <input type="hidden" id="session-type" name="sessionType" required />
           </div>
         </div>
         <div class="form-row">
@@ -333,14 +397,14 @@
             <input type="date" id="date" name="date" required />
           </div>
           <div class="form-group">
-            <label for="time-pref">Preferred Time Slot</label>
-            <select id="time-pref" name="timePref" required>
-              <option value="" disabled selected>Select a time</option>
-              <option value="morning">Morning (6am – 10am)</option>
-              <option value="noon">Afternoon (12pm – 3pm)</option>
-              <option value="evening">Evening (6pm – 9pm)</option>
-              <option value="night">Night (9pm – 11pm)</option>
-            </select>
+            <label>Preferred Time Slot</label>
+            <div class="pill-group pill-group--wrap" id="time-pills">
+              <button type="button" class="pill-btn" data-value="Morning at 06:00 AM" data-field="timePref">🌅 Morning</button>
+              <button type="button" class="pill-btn" data-value="Afternoon at 12:00 PM" data-field="timePref">☀️ Afternoon</button>
+              <button type="button" class="pill-btn" data-value="Evening at 06:00 PM" data-field="timePref">🌆 Evening</button>
+              <button type="button" class="pill-btn" data-value="Night at 09:00 PM" data-field="timePref">🌙 Night</button>
+            </div>
+            <input type="hidden" id="time-pref" name="timePref" required />
           </div>
         </div>
         <div class="form-consent">
