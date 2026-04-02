@@ -123,7 +123,7 @@ joinForm.addEventListener('submit', async (e) => {
   };
 
   // ── Razorpay Integration ──
-  const RAZOR_KEY = 'rzp_test_SYCqp2rqtoUMX6'; // Updated with user's specific test key
+  const RAZOR_KEY = 'rzp_live_SYWYNjycdq6eQv'; // Updated with Live Key
   
   const options = {
     "key": RAZOR_KEY,
@@ -143,12 +143,36 @@ joinForm.addEventListener('submit', async (e) => {
 
       try {
         if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-          const res = await fetch(GOOGLE_SHEET_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
-          });
+          // Retry fetch for network safety
+          let retries = 3;
+          let success = false;
+          let meetLink = '';
+          
+          while (retries > 0 && !success) {
+            try {
+              const res = await fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                // Avoid application/json content-type to prevent preflight CORS restriction for Apps Script
+                body: JSON.stringify(formData),
+              });
+              
+              const resText = await res.text();
+              try {
+                const jsonRes = JSON.parse(resText);
+                if (jsonRes.status === 'success' && jsonRes.meetLink) {
+                  meetLink = jsonRes.meetLink;
+                }
+              } catch (err) {
+                 console.log(resText);
+              }
+
+              success = true;
+            } catch (err) {
+              retries--;
+              if (retries === 0) throw err;
+              await new Promise(r => setTimeout(r, 2000));
+            }
+          }
           
           // Success
           joinForm.style.display = 'none';
@@ -157,7 +181,11 @@ joinForm.addEventListener('submit', async (e) => {
           
           // Final: Redirect to WhatsApp after 3 seconds
           setTimeout(() => {
-            window.location.href = 'https://wa.me/919840600638?text=Hi, I just registered for ManTalks.';
+            const message = meetLink 
+              ? `Hi, I just registered for ManTalks. My Google Meet link is: ${meetLink}` 
+              : `Hi, I just registered for ManTalks. My Payment ID is: ${response.razorpay_payment_id}`;
+            const waText = encodeURIComponent(message);
+            window.location.href = `https://wa.me/919840600638?text=${waText}`;
           }, 3000);
           
         } else {
