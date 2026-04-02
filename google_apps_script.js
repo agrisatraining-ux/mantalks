@@ -22,8 +22,29 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
 
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+
+    // --- CASE 1: INITIATE (User clicked Submit, but hasn't paid yet) ---
+    if (data.action === 'initiate') {
+      const row = [
+        data.displayName,
+        data.email,
+        data.phone,
+        data.language,
+        data.sessionType,
+        data.date,
+        data.timePref,
+        'Initiated',  // Status
+        'N/A'         // PaymentId
+      ];
+      sheet.appendRow(row);
+      return ContentService.createTextOutput(JSON.stringify({ status: 'success' })).setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    // --- CASE 2: COMPLETE (User finished Razorpay) ---
     if (!data.paymentId || data.paymentId === 'N/A') {
-      throw new Error("No payment ID provided.");
+      throw new Error("No payment ID provided during completion.");
     }
 
     // Verify Payment with Razorpay to ensure safe payment
@@ -40,22 +61,30 @@ function doPost(e) {
       throw new Error('Invalid or unverified payment.');
     }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
-
-    // 1. Append to Sheet (Columns: Name, Email, Phone, Language, Session Type, Date, Time, Status, PaymentId)
-    const row = [
-      data.displayName,
-      data.email,
-      data.phone,
-      data.language,
-      data.sessionType,
-      data.date,
-      data.timePref,
-      'PAID',
-      data.paymentId || 'N/A'
-    ];
-    sheet.appendRow(row);
+    // Attempt to update the existing row from "Initiated" to "PAID"
+    const dataRange = sheet.getDataRange();
+    const values = dataRange.getValues();
+    let updatedIndex = -1;
+    
+    // Search backwards to safely find the most recent attempt
+    for(let i = values.length - 1; i >= 0; i--) {
+       if(values[i][1] === data.email) { // Email is Column B (index 1)
+          updatedIndex = i + 1; // Row numbers are 1-indexed
+          break;
+       }
+    }
+    
+    if (updatedIndex !== -1) {
+       // Index 8 is Status ('PAID'), Index 9 is PaymentId
+       sheet.getRange(updatedIndex, 8).setValue('PAID');
+       sheet.getRange(updatedIndex, 9).setValue(data.paymentId);
+    } else {
+       // Failsafe: if we somehow couldn't find the row, append a new one
+       sheet.appendRow([
+         data.displayName, data.email, data.phone, data.language, 
+         data.sessionType, data.date, data.timePref, 'PAID', data.paymentId
+       ]);
+    }
 
     // 2. Schedule Google Meet & Calendar Event
     const eventDetails = createCalendarEvent(data);

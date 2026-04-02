@@ -122,6 +122,14 @@ joinForm.addEventListener('submit', async (e) => {
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
+  // ── Background Fetch: Track Initial Submit ──
+  if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    fetch(GOOGLE_SHEET_URL, {
+      method: 'POST',
+      body: JSON.stringify({ ...formData, action: 'initiate' })
+    }).catch(err => console.error("Initiate error:", err)); // Fire and forget
+  }
+
   // ── Razorpay Integration ──
   const RAZOR_KEY = 'rzp_live_SYWYNjycdq6eQv'; // Updated with Live Key
   
@@ -135,6 +143,7 @@ joinForm.addEventListener('submit', async (e) => {
     "handler": async function (response) {
       // Payment successful! Now send to Google Sheets
       formData.paymentId = response.razorpay_payment_id;
+      formData.action = 'complete';
       
       // Show loading
       btnText.style.display = 'none';
