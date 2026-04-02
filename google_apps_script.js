@@ -28,15 +28,16 @@ function doPost(e) {
     // --- CASE 1: INITIATE (User clicked Submit, but hasn't paid yet) ---
     if (data.action === 'initiate') {
       const row = [
+        new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }), // Date
         data.displayName,
         data.email,
         data.phone,
         data.language,
         data.sessionType,
-        data.date,
-        data.timePref,
-        'Initiated',  // Status
-        'N/A'         // PaymentId
+        data.date,         // Preferred Date
+        data.timePref,     // Preferred Time
+        'Initiated',       // Payment Status
+        'N/A'              // PaymentId
       ];
       sheet.appendRow(row);
       return ContentService.createTextOutput(JSON.stringify({ status: 'success' })).setMimeType(ContentService.MimeType.JSON);
@@ -68,19 +69,20 @@ function doPost(e) {
     
     // Search backwards to safely find the most recent attempt
     for(let i = values.length - 1; i >= 0; i--) {
-       if(values[i][1] === data.email) { // Email is Column B (index 1)
+       if(values[i][2] === data.email) { // Email is now Column C (index 2)
           updatedIndex = i + 1; // Row numbers are 1-indexed
           break;
        }
     }
     
     if (updatedIndex !== -1) {
-       // Index 8 is Status ('PAID'), Index 9 is PaymentId
-       sheet.getRange(updatedIndex, 8).setValue('PAID');
-       sheet.getRange(updatedIndex, 9).setValue(data.paymentId);
+       // Index 9 is Status ('PAID'), Index 10 is PaymentId (because of new Date column)
+       sheet.getRange(updatedIndex, 9).setValue('PAID');
+       sheet.getRange(updatedIndex, 10).setValue(data.paymentId);
     } else {
        // Failsafe: if we somehow couldn't find the row, append a new one
        sheet.appendRow([
+         new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
          data.displayName, data.email, data.phone, data.language, 
          data.sessionType, data.date, data.timePref, 'PAID', data.paymentId
        ]);
