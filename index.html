@@ -396,14 +396,14 @@
             <input type="date" id="date" name="date" required />
           </div>
           <div class="form-group">
-            <label>Preferred Time Slot</label>
-            <div class="pill-group pill-group--wrap" id="time-pills">
-              <button type="button" class="pill-btn" data-value="Morning at 06:00 AM" data-field="timePref">🌅 Morning</button>
-              <button type="button" class="pill-btn" data-value="Afternoon at 12:00 PM" data-field="timePref">☀️ Afternoon</button>
-              <button type="button" class="pill-btn" data-value="Evening at 06:00 PM" data-field="timePref">🌆 Evening</button>
-              <button type="button" class="pill-btn" data-value="Night at 09:00 PM" data-field="timePref">🌙 Night</button>
-            </div>
-            <input type="hidden" id="time-pref" name="timePref" required />
+            <label for="time-pref">Preferred Time Slot</label>
+            <select id="time-pref" name="timePref" required>
+              <option value="" disabled selected>Select a time</option>
+              <option value="Morning at 06:00 AM">Morning (6am – 10am)</option>
+              <option value="Afternoon at 12:00 PM">Afternoon (12pm – 3pm)</option>
+              <option value="Evening at 06:00 PM">Evening (6pm – 9pm)</option>
+              <option value="Night at 09:00 PM">Night (9pm – 11pm)</option>
+            </select>
           </div>
         </div>
         <div class="form-consent">
