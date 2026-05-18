@@ -105,6 +105,41 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ── Date Selection Logic for Sunday Slots ──────────────────────────────────
+const dateInput = document.getElementById('date');
+const timePrefSelect = document.getElementById('time-pref');
+
+if (dateInput && timePrefSelect) {
+  const allTimeOptions = Array.from(timePrefSelect.options);
+  
+  dateInput.addEventListener('change', (e) => {
+    const selectedDate = new Date(e.target.value);
+    const isSunday = !isNaN(selectedDate.getTime()) && selectedDate.getDay() === 0;
+    
+    const currentValue = timePrefSelect.value;
+    
+    timePrefSelect.innerHTML = '';
+    
+    allTimeOptions.forEach(option => {
+      const isSundaySlot = option.value.includes('Sunday');
+      
+      if (isSundaySlot && !isSunday) {
+        return;
+      }
+      
+      timePrefSelect.appendChild(option);
+    });
+    
+    if (Array.from(timePrefSelect.options).some(opt => opt.value === currentValue)) {
+      timePrefSelect.value = currentValue;
+    } else {
+      timePrefSelect.value = "";
+    }
+  });
+
+  dateInput.dispatchEvent(new Event('change'));
+}
+
 // ── Form Submission ───────────────────────────────────────────────────────────
 const joinForm = document.getElementById('joinForm');
 const submitBtn = document.getElementById('submit-btn');
