@@ -18,6 +18,53 @@ const WHATSAPP_LINK = 'https://wa.me/919840600638'; // Update this!
 const RAZORPAY_KEY_ID = 'rzp_live_SYWYNjycdq6eQv';
 const RAZORPAY_KEY_SECRET = 'mMEkvNOofvgUif0UzcuBpTsz';
 
+function doGet(e) {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+    const dataRange = sheet.getDataRange();
+    const values = dataRange.getValues();
+    
+    let bookedSlots = [];
+    
+    // Skip header row
+    for (let i = 1; i < values.length; i++) {
+      const status = values[i][8];
+      if (status === 'PAID') {
+        let dateVal = values[i][6];
+        let dateStr = "";
+        
+        if (dateVal instanceof Date) {
+          const yyyy = dateVal.getFullYear();
+          const mm = String(dateVal.getMonth() + 1).padStart(2, '0');
+          const dd = String(dateVal.getDate()).padStart(2, '0');
+          dateStr = `${yyyy}-${mm}-${dd}`;
+        } else {
+          dateStr = String(dateVal).trim();
+        }
+        
+        bookedSlots.push({
+          date: dateStr,
+          timePref: String(values[i][7]).trim()
+        });
+      }
+    }
+    
+    // Set CORS headers by returning JSON with the proper setup if needed. 
+    // GAS standard text output serves as JSON when mime type is set.
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'success',
+      bookedSlots: bookedSlots
+    })).setMimeType(ContentService.MimeType.JSON);
+    
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'error',
+      message: err.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);
