@@ -111,11 +111,12 @@ function doPost(e) {
 function getTimeString(timePref) {
   // Maps the frontend's select options to actual times to prevent Invalid Date errors
   switch (timePref) {
-    case 'Morning at 06:00 AM': return '06:00 AM';
-    case 'Afternoon at 12:00 PM': return '12:00 PM';
     case 'Evening at 06:00 PM': return '06:00 PM';
+    case 'Evening at 07:00 PM': return '07:00 PM';
+    case 'Evening at 08:00 PM': return '08:00 PM';
     case 'Night at 09:00 PM': return '09:00 PM';
-    default: return '09:00 AM';
+    case 'Night at 10:00 PM': return '10:00 PM';
+    default: return '06:00 PM'; // Updated default just in case
   }
 }
 
