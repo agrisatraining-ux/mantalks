@@ -71,6 +71,23 @@ hamburger.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
 });
 
+// Google Sheets Web App URL — replace with your deployed script URL
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
+
+let bookedSlotsData = [];
+async function fetchBookedSlots() {
+  if (GOOGLE_SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
+  try {
+    const res = await fetch(GOOGLE_SHEET_URL + "?action=getBookedSlots");
+    const data = await res.json();
+    if (data.status === 'success') {
+      bookedSlotsData = data.bookedSlots;
+    }
+  } catch (err) {
+    console.error("Failed to fetch booked slots:", err);
+  }
+}
+
 // ── Modal Logic ──────────────────────────────────────────────────────────────
 const modalOverlay = document.getElementById('modalOverlay');
 const closeModalBtn = document.getElementById('closeModal');
@@ -79,6 +96,22 @@ const openModalBtns = document.querySelectorAll('.open-modal');
 function openModal() {
   modalOverlay.classList.add('active');
   document.body.style.overflow = 'hidden'; // Prevent scroll
+  
+  if (submitBtn && btnText) {
+    btnText.textContent = 'Loading slots...';
+    submitBtn.disabled = true;
+  }
+  
+  fetchBookedSlots().then(() => {
+    if (submitBtn && btnText) {
+      btnText.textContent = 'Start Your Session';
+      submitBtn.disabled = false;
+    }
+    const dateInput = document.getElementById('date');
+    if (dateInput && dateInput.value) {
+      dateInput.dispatchEvent(new Event('change'));
+    }
+  });
 }
 
 function closeModal() {
@@ -120,17 +153,28 @@ if (dateInput && timePrefSelect) {
     
     timePrefSelect.innerHTML = '';
     
+    const bookedForDate = bookedSlotsData
+      .filter(slot => slot.date === e.target.value)
+      .map(slot => slot.timePref);
+    
     allTimeOptions.forEach(option => {
-      const isSundaySlot = option.value.includes('Sunday');
+      const optClone = option.cloneNode(true);
+      const isSundaySlot = optClone.value.includes('Sunday');
       
       if (isSundaySlot && !isSunday) {
         return;
       }
       
-      timePrefSelect.appendChild(option);
+      if (optClone.value && bookedForDate.includes(optClone.value)) {
+        optClone.disabled = true;
+        optClone.style.color = 'red';
+        optClone.textContent = optClone.textContent.replace(' (Booked)', '') + ' (Booked)';
+      }
+      
+      timePrefSelect.appendChild(optClone);
     });
     
-    if (Array.from(timePrefSelect.options).some(opt => opt.value === currentValue)) {
+    if (Array.from(timePrefSelect.options).some(opt => opt.value === currentValue && !opt.disabled)) {
       timePrefSelect.value = currentValue;
     } else {
       timePrefSelect.value = "";
@@ -147,8 +191,7 @@ const btnText = submitBtn.querySelector('.btn-text');
 const btnLoading = submitBtn.querySelector('.btn-loading');
 const formSuccess = document.getElementById('formSuccess');
 
-// Google Sheets Web App URL — replace with your deployed script URL
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
+// Google Sheets URL moved to top
 
 joinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
