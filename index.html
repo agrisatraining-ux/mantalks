@@ -1,65 +1,65 @@
 <!DOCTYPE html>
-<html class="dark scroll-smooth" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ManTalks - A Safe Space for Men</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "on-tertiary": "#4f2500",
-                        "inverse-surface": "#e4e1ed",
-                        "on-primary-fixed-variant": "#2f2ebe",
-                        "surface": "#13131b",
-                        "on-secondary-container": "#00311f",
-                        "on-error-container": "#ffdad6",
-                        "on-primary-fixed": "#07006c",
-                        "outline": "#908fa0",
-                        "surface-dim": "#13131b",
-                        "primary-fixed": "#e1e0ff",
-                        "on-secondary-fixed-variant": "#005236",
-                        "on-secondary-fixed": "#002113",
-                        "surface-tint": "#c0c1ff",
-                        "on-surface": "#e4e1ed",
-                        "outline-variant": "#464554",
-                        "primary-fixed-dim": "#c0c1ff",
-                        "on-secondary": "#003824",
-                        "tertiary-fixed-dim": "#ffb783",
-                        "inverse-primary": "#494bd6",
-                        "on-surface-variant": "#c7c4d7",
-                        "surface-container-highest": "#34343d",
-                        "tertiary": "#ffb783",
-                        "secondary-container": "#00a572",
-                        "tertiary-container": "#d97721",
-                        "on-primary-container": "#0d0096",
-                        "error": "#ffb4ab",
-                        "surface-variant": "#34343d",
-                        "secondary": "#4edea3",
-                        "surface-container": "#1f1f27",
-                        "on-tertiary-container": "#452000",
-                        "tertiary-fixed": "#ffdcc5",
-                        "error-container": "#93000a",
-                        "inverse-on-surface": "#303038",
-                        "on-error": "#690005",
-                        "primary-container": "#8083ff",
-                        "background": "#13131b",
-                        "on-primary": "#1000a9",
-                        "on-background": "#e4e1ed",
-                        "secondary-fixed-dim": "#4edea3",
-                        "surface-container-lowest": "#0d0d15",
-                        "primary": "#c0c1ff",
-                        "on-tertiary-fixed": "#301400",
-                        "surface-container-low": "#1b1b23",
-                        "secondary-fixed": "#6ffbbe",
-                        "surface-container-high": "#292932",
-                        "on-tertiary-fixed-variant": "#703700",
-                        "surface-bright": "#393841"
+                        "surface-bright": "#f4fafd",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#ebf2f4",
+                        "on-secondary-fixed-variant": "#6f3722",
+                        "surface": "#f4fafd",
+                        "on-surface-variant": "#424843",
+                        "surface-variant": "#dde4e6",
+                        "primary-fixed-dim": "#adcfb5",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d4dbdd",
+                        "surface-container-low": "#eef5f7",
+                        "background": "#f4fafd",
+                        "secondary-fixed": "#ffdbcf",
+                        "outline-variant": "#c2c8c1",
+                        "primary-container": "#7d9d85",
+                        "on-background": "#161d1f",
+                        "on-secondary-fixed": "#380d00",
+                        "secondary-container": "#feae91",
+                        "secondary": "#8b4e37",
+                        "primary": "#476550",
+                        "on-surface": "#161d1f",
+                        "inverse-surface": "#2b3234",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#173422",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e2e9ec",
+                        "tertiary-container": "#c7a938",
+                        "surface-container": "#e8eff1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffe17a",
+                        "surface-container-highest": "#dde4e6",
+                        "tertiary": "#715c00",
+                        "inverse-primary": "#adcfb5",
+                        "surface-tint": "#476550",
+                        "primary-fixed": "#c9ebd0",
+                        "on-primary-fixed": "#032110",
+                        "on-primary-fixed-variant": "#304d39",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb59b",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "on-tertiary-container": "#4d3e00",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#793f29",
+                        "tertiary-fixed-dim": "#e4c451",
+                        "on-tertiary-fixed": "#231b00",
+                        "outline": "#727972"
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -69,328 +69,247 @@
                     },
                     spacing: {
                         "gutter": "24px",
-                        "unit": "8px",
-                        "margin-mobile": "20px",
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "section-gap": "80px",
                         "container-max": "1200px",
-                        "margin-desktop": "64px"
+                        "stack-lg": "32px",
+                        "unit": "8px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "40px"
                     },
                     fontFamily: {
-                        "body-md": ["Inter"],
-                        "headline-lg-mobile": ["Montserrat"],
+                        "label-md": ["Open Sans"],
+                        "caption": ["Open Sans"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
                         "headline-md": ["Montserrat"],
-                        "body-lg": ["Inter"],
-                        "label-sm": ["Inter"],
-                        "headline-lg": ["Montserrat"]
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Open Sans"]
                     },
                     fontSize: {
-                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
-                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
-                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "caption": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
                     },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
+                    boxShadow: {
+                        'elevated-sm': '0 4px 24px -4px rgba(125, 157, 133, 0.08)'
                     }
                 }
             }
         }
     </script>
 <style>
-        .glass-panel {
-            background-color: rgba(19, 19, 27, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        .reveal {
+        .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
         }
-        .reveal.active {
+        .fade-in-section.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
+            visibility: visible;
+        }
+        
+        .glass-card {
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(221, 228, 230, 0.5);
         }
     </style>
     <!-- Keep Razorpay -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
-<body class="bg-background text-on-background antialiased relative min-h-screen overflow-x-hidden">
-<!-- Background Shader -->
-<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-40 mix-blend-screen">
-<div class="absolute inset-0 w-full h-full" style="display:block;">
-<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
-<script>
-(function() {
-  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
-  function syncSize() {
-    const w = canvas.clientWidth  || 1280;
-    const h = canvas.clientHeight || 720;
-    if (canvas.width !== w || canvas.height !== h) {
-      canvas.width  = w;
-      canvas.height = h;
-    }
-  }
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(syncSize).observe(canvas);
-  }
-  syncSize();
-  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  if (!gl) return;
-  const vs = `attribute vec2 a_position;
-varying vec2 v_texCoord;
-void main() {
-  v_texCoord = a_position * 0.5 + 0.5;
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}`;
-  const fs = `precision highp float;
-uniform float u_time;
-uniform vec2 u_resolution;
-void main() {
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-    uv.x *= u_resolution.x / u_resolution.y;
-    float noise = sin(uv.x * 2.0 + u_time * 0.2) * cos(uv.y * 2.0 + u_time * 0.1);
-    vec3 color1 = vec3(0.05, 0.05, 0.1); 
-    vec3 color2 = vec3(0.08, 0.08, 0.15); 
-    vec3 finalColor = mix(color1, color2, noise * 0.5 + 0.5);
-    float pulse = sin(u_time * 0.3) * 0.5 + 0.5;
-    finalColor += vec3(0.02, 0.02, 0.05) * pulse;
-    gl_FragColor = vec4(finalColor, 1.0);
-}`;
-  function cs(type, src) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return s;
-  }
-  const prog = gl.createProgram();
-  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-  const buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-  const pos = gl.getAttribLocation(prog, 'a_position');
-  gl.enableVertexAttribArray(pos);
-  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-  const uTime = gl.getUniformLocation(prog, 'u_time');
-  const uRes = gl.getUniformLocation(prog, 'u_resolution');
-  function render(t) {
-    if (typeof ResizeObserver === 'undefined') syncSize();
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    if (uTime) gl.uniform1f(uTime, t * 0.001);
-    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(render);
-  }
-  render(0);
-})();
-</script>
-</div>
-</div>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
-<header class="bg-surface/70 dark:bg-surface/70 backdrop-blur-xl font-body-md text-body-md fixed top-0 w-full z-50 border-b border-white/10 shadow-sm transition-all duration-300">
-<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface">
-                ManTalks
-            </div>
-<nav class="hidden md:flex gap-8">
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#about">About</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#how-it-works">How It Works</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#guidelines">Guidelines</a>
+<header class="bg-surface-bright dark:bg-inverse-surface shadow-sm dark:shadow-none bg-surface-bright/80 backdrop-blur-md fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto left-0 right-0">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary hover:opacity-80 transition-opacity duration-300" href="#">
+            ManTalks
+        </a>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 hover:opacity-80 transition-opacity duration-300 active:scale-95 duration-200" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:opacity-80 transition-opacity duration-300 active:scale-95 duration-200" href="#how-it-works">How It Works</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors hover:opacity-80 transition-opacity duration-300 active:scale-95 duration-200" href="#guidelines">Guidelines</a>
 </nav>
-<button class="hidden md:flex font-label-sm text-label-sm bg-inverse-primary text-on-primary px-6 py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 active:scale-95 shadow-[0_0_15px_rgba(73,75,214,0.3)]" onclick="toggleModal()">
-                Time to Open Up
-            </button>
-</div>
+<button class="hidden md:block bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 hover:shadow-elevated-sm transition-all duration-300 active:scale-95" onclick="document.getElementById('booking-modal').classList.remove('hidden')">
+            Time to Open Up
+        </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </header>
-<main class="pt-32 pb-24 space-y-32">
+<main class="pt-[100px]"> <!-- Offset for fixed header -->
 <!-- Hero Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative" id="hero">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center min-h-[716px]">
-<div class="space-y-8 z-10 reveal">
-<div class="inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                        Anonymous · Confidential · Judgment-Free
-                    </div>
-<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
-                        A safe space for men to share, listen &amp; connect.
-                    </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
-                        Vent. Reflect. Connect. Because every voice deserves to be heard.
-                    </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<button class="bg-inverse-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-full hover:shadow-[0_0_20px_rgba(73,75,214,0.5)] transition-all duration-300 font-semibold tracking-wide" onclick="toggleModal()">
-                            Time to Open Up
-                        </button>
-<a class="glass-panel text-on-surface font-label-sm text-label-sm px-8 py-4 rounded-full hover:border-primary/50 transition-colors duration-300 flex items-center gap-2" href="#about">
-                            Learn More
-                            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
-</a>
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col md:flex-row items-center gap-gutter fade-in-section">
+<div class="flex-1 flex flex-col gap-stack-lg items-start">
+<div class="inline-flex items-center gap-2 bg-primary-container/20 text-primary px-4 py-2 rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+                    Anonymous · Confidential · Judgment-Free
+                </div>
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background">
+                    A safe space for men to share, listen &amp; connect.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Vent. Reflect. Connect. Because every voice deserves to be heard.
+                </p>
+<div class="flex flex-wrap gap-stack-md pt-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-lg hover:bg-surface-tint transition-all duration-300 shadow-sm hover:shadow-elevated-sm" onclick="document.getElementById('booking-modal').classList.remove('hidden')">
+                        Time to Open Up
+                    </button>
+<a class="border border-outline text-primary font-label-md text-label-md px-8 py-4 rounded-lg hover:bg-surface-container-low transition-all duration-300 flex items-center gap-2" href="#about">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+                    </a>
 </div>
-<div class="flex gap-4 font-label-sm text-label-sm text-outline pt-4">
+<div class="flex gap-4 text-outline font-caption text-caption mt-4">
 <span>#NotTherapy</span>
 <span>#JustHumanity</span>
 <span>#EnglishAndTamil</span>
 </div>
 </div>
-<!-- Hero Visual Concept -->
-<div class="relative h-[500px] hidden lg:block reveal" style="transition-delay: 0.2s">
-<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-3xl overflow-hidden glass-panel">
-<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=2070&auto=format&fit=crop')"></div>
-</div>
-<!-- Floating Cards -->
-<div class="absolute top-1/4 -left-8 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 0s;">
-<span class="material-symbols-outlined text-primary text-[24px]">forum</span>
-<span class="font-label-sm text-label-sm text-on-surface">Start to share</span>
-</div>
-<div class="absolute bottom-1/3 -right-4 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 2s;">
-<span class="material-symbols-outlined text-secondary text-[24px]">hearing</span>
-<span class="font-label-sm text-label-sm text-on-surface">Be heard</span>
-</div>
-<div class="absolute top-2/3 left-1/4 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 4s;">
-<span class="material-symbols-outlined text-tertiary text-[24px]">group</span>
-<span class="font-label-sm text-label-sm text-on-surface">Find your circle</span>
-</div>
-</div>
+<div class="flex-1 w-full mt-12 md:mt-0 relative">
+<div class="absolute inset-0 bg-primary-container/10 rounded-xl transform translate-x-4 translate-y-4 -z-10"></div>
+<img alt="Two men sitting and talking in a sunlit room, creating a warm and trusting atmosphere." class="w-full h-auto object-cover rounded-xl shadow-elevated-sm aspect-[4/3]" data-alt="Two men casually sitting on a comfortable sofa in a sunlit, modern living room, deeply engaged in a serious but calm conversation. The lighting is warm and airy, reflecting a morning sunrise aesthetic." src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=2070&auto=format&fit=crop"/>
 </div>
 </section>
 <!-- Stats Strip -->
-<section class="border-y border-white/5 bg-surface-container/50 reveal">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
-<div class="text-center px-4">
-<div class="font-headline-md text-headline-md text-primary mb-1">1-on-1</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Private sessions</div>
+<section class="bg-surface-container-low py-12 border-y border-surface-variant fade-in-section">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-surface-variant">
+<div class="flex flex-col items-center text-center gap-2 px-4">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
+<span class="font-label-md text-label-md text-on-surface">1-on-1 Private sessions</span>
 </div>
-<div class="text-center px-4">
-<div class="font-headline-md text-headline-md text-primary mb-1">45–60</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Minutes per session</div>
+<div class="flex flex-col items-center text-center gap-2 px-4">
+<span class="material-symbols-outlined text-primary text-3xl">schedule</span>
+<span class="font-label-md text-label-md text-on-surface">45–60 Minutes per session</span>
 </div>
-<div class="text-center px-4">
-<div class="font-headline-md text-headline-md text-primary mb-1">2</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Languages (EN, TA)</div>
+<div class="flex flex-col items-center text-center gap-2 px-4">
+<span class="material-symbols-outlined text-primary text-3xl">language</span>
+<span class="font-label-md text-label-md text-on-surface">2 Languages (EN, TA)</span>
 </div>
-<div class="text-center px-4">
-<div class="font-headline-md text-headline-md text-primary mb-1">₹399</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Per session</div>
-</div>
+<div class="flex flex-col items-center text-center gap-2 px-4">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+<span class="font-label-md text-label-md text-on-surface">₹399 Per session</span>
 </div>
 </div>
 </section>
 <!-- About Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop reveal" id="about">
-<div class="grid md:grid-cols-2 gap-16 items-center">
-<div class="space-y-6">
-<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
-                        Many men carry unspoken emotions. We built a place to let them breathe.
-                    </h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                        Society often expects men to shoulder burdens silently. ManTalks provides a confidential, judgment-free listening space where you can drop the armor. Available in English and Tamil, this is a peer-to-peer network designed for genuine human connection.
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap fade-in-section" id="about">
+<div class="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-stack-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">
+                    Many men carry unspoken emotions. We built a place to let them breathe.
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    ManTalks provides a confidential, judgment-free listening space where you can drop the armor. Available in English and Tamil, this is a peer-to-peer network designed for genuine human connection.
+                </p>
+<div class="relative py-8 px-6 mt-8 bg-surface-container rounded-xl">
+<span class="material-symbols-outlined absolute top-4 left-4 text-primary-container/40 text-6xl">format_quote</span>
+<p class="font-headline-md text-headline-md text-primary italic relative z-10">
+                        "This is not therapy. This is a listening circle."
                     </p>
-<div class="glass-panel border-l-4 border-l-inverse-primary p-6 rounded-r-xl">
-<p class="font-body-lg text-body-lg font-medium text-on-surface italic">
-                            "This is not therapy. This is a listening circle."
-                        </p>
 </div>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">lock</span>
-<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Anonymous</h3>
-<p class="font-body-md text-label-sm text-on-surface-variant">Your identity remains completely private. No pressure.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mt-16">
+<!-- Card 1 -->
+<div class="bg-surface p-8 rounded-xl shadow-elevated-sm border border-surface-variant flex flex-col items-center text-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center p-3">
+    <span class="material-symbols-outlined text-[32px] text-primary">lock</span>
 </div>
-<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">translate</span>
-<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Bilingual</h3>
-<p class="font-body-md text-label-sm text-on-surface-variant">Express yourself comfortably in English or Tamil.</p>
+<h3 class="font-label-md text-label-md text-on-surface">Anonymous</h3>
+<p class="font-caption text-caption text-on-surface-variant">Complete privacy. Your identity stays protected at all times.</p>
 </div>
-<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">diversity_3</span>
-<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Peer-Led</h3>
-<p class="font-body-md text-label-sm text-on-surface-variant">Connect with trained peers who understand the journey.</p>
+<!-- Card 2 -->
+<div class="bg-surface p-8 rounded-xl shadow-elevated-sm border border-surface-variant flex flex-col items-center text-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center p-3">
+    <span class="material-symbols-outlined text-[32px] text-primary">translate</span>
 </div>
-<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
-<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">schedule</span>
-<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Structured</h3>
-<p class="font-body-md text-label-sm text-on-surface-variant">45-60 minute focused sessions with clear boundaries.</p>
+<h3 class="font-label-md text-label-md text-on-surface">Bilingual</h3>
+<p class="font-caption text-caption text-on-surface-variant">Speak freely in English or Tamil with native listeners.</p>
 </div>
+<!-- Card 3 -->
+<div class="bg-surface p-8 rounded-xl shadow-elevated-sm border border-surface-variant flex flex-col items-center text-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center p-3">
+    <span class="material-symbols-outlined text-[32px] text-primary">diversity_3</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface">Peer-Led</h3>
+<p class="font-caption text-caption text-on-surface-variant">Guided by men who understand the unique challenges you face.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface p-8 rounded-xl shadow-elevated-sm border border-surface-variant flex flex-col items-center text-center gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center p-3">
+    <span class="material-symbols-outlined text-[32px] text-primary">schedule</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface">Structured</h3>
+<p class="font-caption text-caption text-on-surface-variant">Clear formats ensure every session is productive and respectful.</p>
 </div>
 </div>
 </section>
 
 <!-- How it works -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal" id="how-it-works">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 fade-in-section" id="how-it-works">
     <div class="mb-12 text-center">
-        <h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
             How It Works
         </h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="glass-panel p-6 rounded-xl text-center">
-            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">1</div>
+        <div class="bg-surface p-6 rounded-xl text-center shadow-elevated-sm">
+            <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">1</div>
             <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Choose Your Path</h3>
         </div>
-        <div class="glass-panel p-6 rounded-xl text-center">
-            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">2</div>
+        <div class="bg-surface p-6 rounded-xl text-center shadow-elevated-sm">
+            <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">2</div>
             <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Pick a Slot</h3>
         </div>
-        <div class="glass-panel p-6 rounded-xl text-center">
-            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">3</div>
+        <div class="bg-surface p-6 rounded-xl text-center shadow-elevated-sm">
+            <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">3</div>
             <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Stay Anonymous</h3>
         </div>
-        <div class="glass-panel p-6 rounded-xl text-center">
-            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">4</div>
+        <div class="bg-surface p-6 rounded-xl text-center shadow-elevated-sm">
+            <div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">4</div>
             <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Expand Over Time</h3>
         </div>
     </div>
 </section>
 
 <!-- Guidelines -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal" id="guidelines">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 fade-in-section" id="guidelines">
     <div class="mb-12 text-center">
-        <h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
+        <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
             Session Guidelines
         </h2>
         <p class="font-body-md text-on-surface-variant mt-2">The only rules here are respect and honesty.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">Respect confidentiality</p>
         </div>
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">No judgment</p>
         </div>
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">Peer support</p>
         </div>
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">Respectful presence</p>
         </div>
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">Advice only when asked</p>
         </div>
-        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+        <div class="flex gap-4 items-start bg-surface-container-low p-4 rounded-lg">
             <span class="material-symbols-outlined text-primary">check_circle</span>
             <p class="font-body-md text-on-surface-variant">You may leave at any time</p>
         </div>
@@ -398,80 +317,71 @@ void main() {
 </section>
 
 <!-- CTA Section -->
-<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal">
-<div class="glass-panel rounded-3xl p-12 text-center relative overflow-hidden flex flex-col items-center justify-center">
-<div class="absolute inset-0 bg-gradient-to-t from-inverse-primary/10 to-transparent pointer-events-none"></div>
-<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface mb-6 relative z-10">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 fade-in-section">
+<div class="bg-secondary rounded-3xl p-12 text-center relative overflow-hidden flex flex-col items-center justify-center">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-secondary mb-6 relative z-10">
                     Ready to drop the weight?
                 </h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-2xl relative z-10">
+<p class="font-body-md text-body-md text-on-secondary/90 mb-10 max-w-2xl relative z-10">
                     Join hundreds of men who are discovering the quiet strength of speaking their truth in a supportive, anonymous environment.
                 </p>
-<button class="relative z-10 bg-inverse-primary text-on-primary font-label-sm text-label-sm px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 font-semibold tracking-wide shadow-[0_0_30px_rgba(73,75,214,0.4)]" onclick="toggleModal()">
+<button class="relative z-10 bg-surface text-primary font-label-md text-label-md px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 font-semibold tracking-wide shadow-lg" onclick="document.getElementById('booking-modal').classList.remove('hidden')">
                     Join the Circle Now
                 </button>
 </div>
 </section>
 </main>
+
 <!-- Footer -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest font-body-md text-body-md text-secondary dark:text-secondary w-full py-16 border-t border-outline-variant/30 mt-20">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="col-span-1 md:col-span-2 space-y-4">
-<div class="text-headline-md font-headline-md text-on-surface font-bold">ManTalks</div>
-<p class="text-on-surface-variant max-w-sm">A confidential listening space designed to help men process emotions, share experiences, and find peer support without judgment.</p>
-<div class="font-label-sm text-label-sm text-on-surface-variant pt-4">© 2026 ManTalks. All rights reserved.</div>
-</div>
-<div class="space-y-4">
-<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Resources</h4>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">About</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Guidelines</a>
-</div>
-</div>
-<div class="space-y-4">
-<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Legal</h4>
-<div class="flex flex-col gap-2">
-<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Terms of Service</a>
-</div>
-</div>
-</div>
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md mt-section-gap">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">
+            ManTalks
+        </div>
+<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+<a class="font-caption text-caption text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded" href="#">Privacy</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded" href="#">Terms</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded" href="#">Guidelines</a>
+<a class="font-caption text-caption text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 rounded" href="#">Support</a>
+</nav>
+<div class="font-caption text-caption text-on-surface-variant dark:text-outline-variant">
+            © 2026 ManTalks. All rights reserved.
+        </div>
 </footer>
-<!-- Booking Modal -->
-<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="booking-modal">
-<div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="toggleModal()"></div>
-<div class="glass-panel w-full max-w-lg rounded-2xl p-8 relative z-10 animate-fade-in-up shadow-2xl border border-white/20 h-[80vh] overflow-y-auto">
-<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors" onclick="toggleModal()">
+
+<!-- Booking Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-[100] hidden bg-on-background/40 backdrop-blur-sm flex items-center justify-center p-4" id="booking-modal">
+<div class="bg-surface rounded-xl shadow-elevated-sm max-w-md w-full p-8 max-h-[90vh] overflow-y-auto relative">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary" onclick="document.getElementById('booking-modal').classList.add('hidden')">
 <span class="material-symbols-outlined">close</span>
 </button>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Book a Session</h3>
-<p class="font-body-md text-label-sm text-on-surface-variant mb-8">Your details are kept strictly confidential.</p>
-<!-- Form Integration -->
-<form class="space-y-5" id="joinForm" novalidate>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Book a Session</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Take the first step. We're here to listen.</p>
+
+<form class="flex flex-col gap-4" id="joinForm" novalidate>
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Your Name</label>
-<input id="display-name" name="displayName" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="e.g. Karthik" type="text" required/>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Name (or Alias)</label>
+<input id="display-name" name="displayName" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="How should we call you?" type="text" required/>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Email Address</label>
-<input id="email" name="email" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="you@example.com" type="email" required/>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Email Address</label>
+<input id="email" name="email" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="you@example.com" type="email" required/>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Phone Number</label>
-<input id="phone" name="phone" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="+91 98765 43210" type="tel" required/>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Phone Number</label>
+<input id="phone" name="phone" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="+91 98765 43210" type="tel" required/>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Language</label>
-<select id="language" name="language" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Language</label>
+<select id="language" name="language" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" required>
 <option value="" disabled selected>Select</option>
 <option value="english">English</option>
 <option value="tamil">Tamil</option>
 </select>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Session Type</label>
-<select id="session-type" name="sessionType" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Session Type</label>
+<select id="session-type" name="sessionType" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" required>
 <option value="" disabled selected>Select</option>
 <option value="vent">I want to vent</option>
 <option value="advice">I'd like peer advice</option>
@@ -481,12 +391,12 @@ void main() {
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Preferred Date</label>
-<input id="date" name="date" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" type="date" required/>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Preferred Date</label>
+<input id="date" name="date" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" type="date" required/>
 </div>
 <div>
-<label class="block font-label-sm text-label-sm text-on-surface mb-2">Time Slot</label>
-<select id="time-pref" name="timePref" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Time Slot</label>
+<select id="time-pref" name="timePref" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" required>
 <option value="" disabled selected>Select time</option>
 <option value="morning">Morning (6am – 10am)</option>
 <option value="noon">Afternoon (12pm – 3pm)</option>
@@ -495,16 +405,18 @@ void main() {
 </select>
 </div>
 </div>
-<div class="pt-4 flex items-start gap-3">
-<input class="mt-1 w-4 h-4 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary focus:ring-offset-background" id="consent" name="consent" required type="checkbox"/>
-<label class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed" for="consent">
-                        I agree to the <a href="#guidelines" class="text-primary hover:underline">Session Guidelines</a>.
+<div class="pt-2 flex items-start gap-3">
+<input class="mt-1 w-4 h-4 rounded border-outline-variant bg-surface text-primary focus:ring-primary" id="consent" name="consent" required type="checkbox"/>
+<label class="font-caption text-caption text-on-surface-variant leading-relaxed" for="consent">
+                        I agree to the Session Guidelines.
                     </label>
 </div>
-<button id="submit-btn" class="w-full bg-inverse-primary text-on-primary font-label-sm text-label-sm px-6 py-4 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 font-semibold tracking-wide mt-4" type="submit">
-                    <span class="btn-text">Continue to Payment (₹399)</span>
-                    <span class="btn-loading" style="display:none">Processing...</span>
-                </button>
+<div class="mt-4">
+<button id="submit-btn" class="w-full bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg hover:opacity-90 transition-all" type="submit">
+                        <span class="btn-text">Confirm Booking (₹399)</span>
+                        <span class="btn-loading" style="display:none">Processing...</span>
+                    </button>
+</div>
 <div id="formSuccess" style="display:none;" class="mt-4 p-4 rounded bg-primary/20 text-primary text-center">
     <h3>You're in the circle.</h3>
     <p>We'll reach out within 24 hours.</p>
@@ -512,39 +424,39 @@ void main() {
 </form>
 </div>
 </div>
-<!-- Keep your original script.js logic right here, embedded to ensure functionality remains intact -->
 <script>
-        // Modal Toggle
-        function toggleModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }
-        }
+        // Intersection Observer for fade-in animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-        // Scroll Reveal Animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-                reveals.forEach((reveal) => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            };
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Trigger on load
-        });
+            }, observerOptions);
 
+            document.querySelectorAll('.fade-in-section').forEach((section) => {
+                observer.observe(section);
+            });
+            
+            // Trigger first section immediately if in viewport
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-section').forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if(rect.top < window.innerHeight) {
+                        section.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+        });
+        
         // Razorpay and Form Logic
         const joinForm = document.getElementById('joinForm');
         const submitBtn = document.getElementById('submit-btn');
@@ -624,7 +536,7 @@ void main() {
               "email": formData.email,
               "contact": formData.phone
             },
-            "theme": { "color": "#1A7F5A" }
+            "theme": { "color": "#7D9D85" }
           };
 
           const rzp = new Razorpay(options);
