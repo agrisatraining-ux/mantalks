@@ -22,47 +22,48 @@ head_part += '    <script src="https://checkout.razorpay.com/v1/checkout.js"></s
 
 # Read the modal design
 modal_design = open("modal_design.html", "r", encoding="utf-8").read()
-# Extract the form side of the modal
-form_side_match = re.search(r'<!-- Form Side -->(.*?)<!-- Corner Hallmark -->', modal_design, re.DOTALL)
+# Extract the form side of the modal. Stitch generated the form side for modal_design.html
+# We'll just look for the form itself and wrap it.
+form_side_match = re.search(r'<form.*?>(.*?)</form>', modal_design, re.DOTALL)
 form_side = form_side_match.group(1) if form_side_match else ""
 
 # Create a popup modal version of the form side
 popup_modal = f"""
 <!-- Booking Modal (Hidden by Default) -->
-<div class="fixed inset-0 z-[100] hidden bg-[#081425]/80 backdrop-blur-xl flex items-center justify-center p-4 transition-all duration-300" id="booking-modal">
-<div class="bg-[#1E293B] max-w-2xl w-full p-8 md:p-12 border border-[#E2E8F0]/30 shadow-[16px_16px_0_0_rgba(0,0,0,1)] relative max-h-[90vh] overflow-y-auto">
-<button class="absolute top-4 right-4 text-on-surface-variant hover:text-white transition-colors duration-200" onclick="document.getElementById('booking-modal').classList.add('hidden')">
+<div class="fixed inset-0 z-[100] hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300" id="booking-modal">
+<div class="bg-surface-container max-w-2xl w-full p-8 md:p-12 rounded-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto border border-outline-variant/20">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" onclick="document.getElementById('booking-modal').classList.add('hidden')">
 <span class="material-symbols-outlined text-[24px]">close</span>
 </button>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-tighter mb-2">ManTalks</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter mb-2">ManTalks</h1>
 <h2 class="font-body-lg text-body-lg text-secondary mb-8">Session Request</h2>
 
 <form class="space-y-8" id="joinForm" novalidate>
 <!-- Personal Info -->
 <div class="space-y-6">
 <div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="display-name">Full Name (or Alias)</label>
-<input id="display-name" name="displayName" class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="John Doe" type="text" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="display-name">Full Name (or Alias)</label>
+<input id="display-name" name="displayName" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="John Doe" type="text" required/>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="email">Email</label>
-<input id="email" name="email" class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="you@example.com" type="email" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="email">Email</label>
+<input id="email" name="email" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="you@example.com" type="email" required/>
 </div>
 <div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="phone">Phone Number</label>
-<input id="phone" name="phone" class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="+91 98765 43210" type="tel" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="phone">Phone Number</label>
+<input id="phone" name="phone" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="+91 98765 43210" type="tel" required/>
 </div>
 </div>
 </div>
 <!-- Divider -->
-<div class="w-full h-[1px] bg-outline-variant/30"></div>
+<div class="w-full h-[1px] bg-outline-variant/20 my-8"></div>
 <!-- Preferences -->
 <div class="space-y-8">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="session-type">Session Type</label>
-<select id="session-type" name="sessionType" class="w-full bg-surface-dim border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2.5 font-body-md text-body-md text-on-surface rounded-none cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="session-type">Session Type</label>
+<select id="session-type" name="sessionType" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select</option>
 <option value="vent">I want to vent</option>
 <option value="advice">I'd like peer advice</option>
@@ -70,8 +71,8 @@ popup_modal = f"""
 </select>
 </div>
 <div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="language">Language</label>
-<select id="language" name="language" class="w-full bg-surface-dim border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2.5 font-body-md text-body-md text-on-surface rounded-none cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="language">Language</label>
+<select id="language" name="language" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select</option>
 <option value="english">English</option>
 <option value="tamil">Tamil</option>
@@ -80,12 +81,12 @@ popup_modal = f"""
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="date">Preferred Date</label>
-<input id="date" name="date" class="w-full bg-surface-dim border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2 font-body-md text-body-md text-on-surface [color-scheme:dark]" type="date" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="date">Preferred Date</label>
+<input id="date" name="date" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface" type="date" required/>
 </div>
 <div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="time-pref">Time Slot</label>
-<select id="time-pref" name="timePref" class="w-full bg-surface-dim border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2.5 font-body-md text-body-md text-on-surface rounded-none cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="time-pref">Time Slot</label>
+<select id="time-pref" name="timePref" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select time</option>
 <option value="morning">Morning (6am – 10am)</option>
 <option value="noon">Afternoon (12pm – 3pm)</option>
@@ -100,33 +101,32 @@ popup_modal = f"""
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="relative flex items-start pt-1">
 <input id="consent" name="consent" class="peer sr-only" required type="checkbox"/>
-<div class="w-5 h-5 border border-outline-variant bg-transparent peer-checked:bg-secondary peer-checked:border-secondary transition-colors rounded-none flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-black opacity-0 peer-checked:opacity-100">check</span>
+<div class="w-5 h-5 border-2 border-outline-variant rounded bg-transparent peer-checked:bg-secondary peer-checked:border-secondary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-white opacity-0 peer-checked:opacity-100">check</span>
 </div>
 </div>
 <span class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed block pt-1">
                             I understand this is a peer-led listening space and not a medical/therapeutic service. I agree to the guidelines.
                         </span>
 </label>
-<button id="submit-btn" class="w-full bg-white text-black font-label-bold text-label-bold uppercase tracking-widest py-4 px-8 hover:shadow-[8px_8px_0_0_rgba(233,195,73,1)] hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+<button id="submit-btn" class="w-full bg-secondary text-white font-label-md text-label-md py-4 px-8 rounded-xl hover:shadow-[0_4px_20px_rgba(188,108,37,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2" type="submit">
                         <span class="btn-text">Confirm Booking (₹399)</span>
                         <span class="btn-loading" style="display:none">Processing...</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </button>
-<div id="formSuccess" style="display:none;" class="mt-4 p-4 border border-secondary text-secondary text-center uppercase tracking-widest text-label-bold">
+<div id="formSuccess" style="display:none;" class="mt-4 p-4 bg-secondary/10 rounded-lg text-secondary text-center text-label-md">
     SUCCESS. WE'LL CONTACT YOU SHORTLY.
 </div>
 </div>
 </form>
-<div class="absolute bottom-4 right-4 w-2 h-2 bg-secondary"></div>
 </div>
 </div>
 """
 
-# Now replace the href="#join" with onclick="document.getElementById('booking-modal').classList.remove('hidden')"
-body_part = body_part.replace('href="#join"', 'onclick="document.getElementById(\'booking-modal\').classList.remove(\'hidden\'); return false;" href="#"')
+# Replace any href="#join" with modal popup trigger
+body_part = re.sub(r'href="#join"', 'onclick="document.getElementById(\'booking-modal\').classList.remove(\'hidden\'); return false;" href="#"', body_part)
 
-# Inject the modal before the script
+# Inject modal before the script
 body_part = body_part.replace('</body></html>', popup_modal + '\n' + js_logic + '\n</body></html>')
 
 # Fix a small bug in original JS logic where it searches for btnText and btnLoading

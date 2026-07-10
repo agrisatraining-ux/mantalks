@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ManTalks - Book a Session</title>
+<title>Confidential Session Request - ManTalks</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,500;0,7..72,600;1,7..72,500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -14,53 +16,53 @@
         theme: {
           extend: {
             "colors": {
-                    "surface-dim": "#081425",
-                    "surface-container": "#152031",
-                    "on-secondary-fixed": "#241a00",
-                    "on-tertiary-fixed": "#161c22",
-                    "on-surface-variant": "#c6c6cd",
-                    "inverse-on-surface": "#263143",
-                    "on-background": "#d8e3fb",
-                    "secondary": "#e9c349",
-                    "surface-container-low": "#111c2d",
-                    "tertiary": "#c1c7cf",
-                    "surface-tint": "#bec6e0",
-                    "on-primary": "#283044",
-                    "background": "#081425",
-                    "outline": "#909097",
-                    "primary-fixed-dim": "#bec6e0",
-                    "error": "#ffb4ab",
-                    "primary": "#bec6e0",
-                    "on-tertiary-fixed-variant": "#41474e",
-                    "tertiary-fixed-dim": "#c1c7cf",
-                    "on-error": "#690005",
-                    "surface-container-highest": "#2a3548",
-                    "primary-container": "#0f172a",
-                    "surface-container-lowest": "#040e1f",
-                    "on-secondary-fixed-variant": "#574500",
-                    "surface-variant": "#2a3548",
-                    "on-tertiary-container": "#7b8189",
-                    "error-container": "#93000a",
-                    "on-secondary": "#3c2f00",
-                    "on-surface": "#d8e3fb",
-                    "on-tertiary": "#2b3137",
-                    "on-primary-fixed": "#131b2e",
-                    "on-secondary-container": "#342800",
-                    "surface-container-high": "#1f2a3c",
-                    "inverse-surface": "#d8e3fb",
-                    "primary-fixed": "#dae2fd",
-                    "inverse-primary": "#565e74",
-                    "on-error-container": "#ffdad6",
-                    "surface": "#081425",
-                    "surface-bright": "#2f3a4c",
-                    "secondary-container": "#af8d11",
-                    "outline-variant": "#45464d",
-                    "secondary-fixed-dim": "#e9c349",
-                    "on-primary-fixed-variant": "#3f465c",
-                    "tertiary-container": "#12181e",
-                    "tertiary-fixed": "#dde3eb",
-                    "on-primary-container": "#798098",
-                    "secondary-fixed": "#ffe088"
+                    "background": "#fff8f5",
+                    "outline": "#737872",
+                    "surface-container-low": "#fbf2ed",
+                    "surface-variant": "#eae1dc",
+                    "surface-container-high": "#efe6e1",
+                    "on-primary-container": "#819684",
+                    "secondary-container": "#c6e8cd",
+                    "inverse-surface": "#34302c",
+                    "surface": "#fff8f5",
+                    "on-background": "#1f1b18",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#d17c35",
+                    "surface-tint": "#4f6353",
+                    "primary-fixed": "#d1e8d3",
+                    "surface-container": "#f5ece7",
+                    "tertiary-container": "#452000",
+                    "secondary": "#476550",
+                    "inverse-primary": "#b6ccb8",
+                    "tertiary": "#260f00",
+                    "surface-bright": "#fff8f5",
+                    "primary-container": "#1b2e20",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#4b6954",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#b6ccb8",
+                    "on-surface-variant": "#434843",
+                    "outline-variant": "#c3c8c1",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#adcfb5",
+                    "tertiary-fixed-dim": "#ffb781",
+                    "on-tertiary-fixed": "#2f1400",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#eae1dc",
+                    "on-surface": "#1f1b18",
+                    "on-primary-fixed": "#0c1f12",
+                    "on-tertiary-fixed-variant": "#6f3800",
+                    "inverse-on-surface": "#f8efea",
+                    "on-secondary-fixed": "#032110",
+                    "primary": "#06190d",
+                    "tertiary-fixed": "#ffdcc4",
+                    "on-primary-fixed-variant": "#384b3c",
+                    "secondary-fixed": "#c9ebd0",
+                    "on-secondary-fixed-variant": "#304d39",
+                    "surface-dim": "#e1d8d3",
+                    "error-container": "#ffdad6"
             },
             "borderRadius": {
                     "DEFAULT": "0.25rem",
@@ -69,257 +71,202 @@
                     "full": "9999px"
             },
             "spacing": {
-                    "container-max": "1280px",
                     "margin-mobile": "20px",
-                    "gutter": "32px",
                     "unit": "8px",
-                    "margin-desktop": "64px"
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "margin-desktop": "40px",
+                    "container-max-width": "1200px"
             },
             "fontFamily": {
-                    "display-xl": [
-                            "Playfair Display"
-                    ],
-                    "headline-lg": [
-                            "Playfair Display"
-                    ],
-                    "headline-lg-mobile": [
-                            "Playfair Display"
-                    ],
-                    "body-lg": [
-                            "Montserrat"
-                    ],
-                    "label-sm": [
-                            "Montserrat"
-                    ],
-                    "headline-md": [
-                            "Playfair Display"
-                    ],
-                    "label-bold": [
-                            "Montserrat"
-                    ],
-                    "body-md": [
-                            "Montserrat"
-                    ]
+                    "headline-xl": ["Literata"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Literata"],
+                    "headline-lg-mobile": ["Literata"],
+                    "headline-lg": ["Literata"]
             },
             "fontSize": {
-                    "display-xl": [
-                            "64px",
-                            {
-                                    "lineHeight": "1.1",
-                                    "letterSpacing": "-0.02em",
-                                    "fontWeight": "700"
-                            }
-                    ],
-                    "headline-lg": [
-                            "40px",
-                            {
-                                    "lineHeight": "1.2",
-                                    "fontWeight": "700"
-                            }
-                    ],
-                    "headline-lg-mobile": [
-                            "32px",
-                            {
-                                    "lineHeight": "1.2",
-                                    "fontWeight": "700"
-                            }
-                    ],
-                    "body-lg": [
-                            "18px",
-                            {
-                                    "lineHeight": "1.6",
-                                    "letterSpacing": "0.01em",
-                                    "fontWeight": "400"
-                            }
-                    ],
-                    "label-sm": [
-                            "11px",
-                            {
-                                    "lineHeight": "1",
-                                    "letterSpacing": "0.05em",
-                                    "fontWeight": "500"
-                            }
-                    ],
-                    "headline-md": [
-                            "24px",
-                            {
-                                    "lineHeight": "1.3",
-                                    "fontWeight": "600"
-                            }
-                    ],
-                    "label-bold": [
-                            "12px",
-                            {
-                                    "lineHeight": "1",
-                                    "letterSpacing": "0.15em",
-                                    "fontWeight": "700"
-                            }
-                    ],
-                    "body-md": [
-                            "16px",
-                            {
-                                    "lineHeight": "1.6",
-                                    "fontWeight": "400"
-                            }
-                    ]
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
             }
-        }
-        }
+          },
+        },
       }
     </script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
         }
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover, 
-        input:-webkit-autofill:focus, 
-        input:-webkit-autofill:active{
-            -webkit-box-shadow: 0 0 0 30px #1E293B inset !important;
-            -webkit-text-fill-color: white !important;
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #eae1dc;
+            border-radius: 20px;
         }
     </style>
 </head>
-<body class="bg-background min-h-screen flex flex-col items-center justify-center font-sans text-on-surface p-margin-mobile md:p-margin-desktop">
-<div class="w-full max-w-4xl grid md:grid-cols-2 gap-0 shadow-[16px_16px_0_0_rgba(0,0,0,1)] relative z-10">
-<!-- Info Side -->
-<div class="bg-surface-dim p-12 hidden md:flex flex-col justify-between border-t border-l border-b border-tertiary/10 relative overflow-hidden">
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-3xl rounded-full"></div>
+<body class="bg-surface-container-low min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop font-sans relative overflow-hidden">
+<!-- Dark Overlay / Backdrop -->
+<div class="fixed inset-0 bg-on-background/80 backdrop-blur-sm z-0"></div>
+<!-- Modal Container -->
+<main class="relative z-10 w-full max-w-[800px] bg-background rounded-[24px] shadow-[0_20px_40px_-15px_rgba(6,25,13,0.1),_0_0_80px_rgba(209,124,53,0.05)] overflow-hidden flex flex-col md:flex-row">
+<!-- Left Column: Trust & Info (Hidden on very small screens) -->
+<aside class="hidden md:flex flex-col w-1/3 bg-surface-container border-r border-surface-variant p-8 relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-on-tertiary-container"></div>
+<div class="mb-12">
+<span class="font-headline-md text-headline-md text-primary font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">fireplace</span>
+                    ManTalks
+                </span>
+</div>
+<div class="flex-grow flex flex-col justify-center space-y-8">
 <div>
-<h1 class="font-display-xl text-display-xl text-on-surface uppercase tracking-tighter mb-4">ManTalks</h1>
-<div class="h-[1px] w-12 bg-secondary mb-8"></div>
-<h2 class="font-headline-md text-headline-md text-secondary mb-6">Confidential Session Request</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed max-w-sm">
-                    A dedicated, private space for modern leaders to process, reflect, and find clarity. Your request is handled with absolute discretion.
-                </p>
-<ul class="space-y-6">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Confidential Session Request</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Your request is handled with absolute discretion. Secured by bank-level privacy protocols.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">lock</span>
 <div>
-<span class="block font-label-bold text-label-bold uppercase text-on-surface mb-1">Strict Confidentiality</span>
-<span class="block font-label-sm text-label-sm text-on-surface-variant">Bank-level privacy protocols.</span>
+<h4 class="font-label-md text-label-md text-on-surface">Strict Confidentiality</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">End-to-end encrypted communication.</p>
 </div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-secondary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1">handshake</span>
 <div>
-<span class="block font-label-bold text-label-bold uppercase text-on-surface mb-1">Peer-Led Architecture</span>
-<span class="block font-label-sm text-label-sm text-on-surface-variant">Guided by experienced facilitators.</span>
+<h4 class="font-label-md text-label-md text-on-surface">Peer-Led Architecture</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Grounded support from trained brothers.</p>
 </div>
-</li>
-</ul>
 </div>
-<div class="mt-16 text-on-tertiary-container font-label-sm text-label-sm">
-                SYSTEM REF: MT-SEC-8924 | V.2026
-            </div>
 </div>
-<!-- Form Side -->
-<div class="bg-[#1E293B] p-8 md:p-12 border-t border-r border-b border-tertiary/10 relative">
-<!-- Metallic Accent -->
-<div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E2E8F0]/30 to-transparent"></div>
-<!-- Mobile Header -->
-<div class="md:hidden mb-8">
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-tighter mb-2">ManTalks</h1>
-<h2 class="font-body-lg text-body-lg text-secondary">Session Request</h2>
 </div>
-<form class="space-y-8">
-<!-- Personal Info -->
-<div class="space-y-6">
-<div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="fullName">Full Name</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" id="fullName" placeholder="John Doe" type="text"/>
+</aside>
+<!-- Right Column: Form -->
+<div class="w-full md:w-2/3 p-6 md:p-10 max-h-[921px] overflow-y-auto custom-scrollbar">
+<!-- Mobile Header (Visible only on mobile) -->
+<div class="md:hidden mb-8 border-l-4 border-on-tertiary-container pl-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Confidential Session</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Secured by bank-level privacy protocols.</p>
 </div>
+<form action="#" class="space-y-8" method="POST">
+<!-- Personal Info Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="email">Corporate/Personal Email</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" id="email" placeholder="john@company.com" type="email"/>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="fullName">Full Name</label>
+<input class="w-full bg-secondary-container/10 border-0 border-b-2 border-surface-variant focus:border-on-tertiary-container focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors rounded-t-lg" id="fullName" name="fullName" placeholder="John Doe" type="text"/>
 </div>
-<div class="relative group">
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="phone">Phone Number</label>
-<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-surface transition-colors" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="email">Email Address</label>
+<input class="w-full bg-secondary-container/10 border-0 border-b-2 border-surface-variant focus:border-on-tertiary-container focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors rounded-t-lg" id="email" name="email" placeholder="john@example.com" type="email"/>
 </div>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="phone">Phone Number</label>
+<input class="w-full bg-secondary-container/10 border-0 border-b-2 border-surface-variant focus:border-on-tertiary-container focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors rounded-t-lg" id="phone" name="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="language">Language Preference</label>
+<select class="w-full bg-secondary-container/10 border-0 border-b-2 border-surface-variant focus:border-on-tertiary-container focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors rounded-t-lg appearance-none" id="language" name="language">
+<option value="english">English</option>
+<option value="tamil">Tamil</option>
+</select>
 </div>
 </div>
 <!-- Divider -->
-<div class="w-full h-[1px] bg-outline-variant/30"></div>
-<!-- Preferences -->
-<div class="space-y-8">
-<div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-4">Session Objective</label>
+<div class="w-full h-px bg-surface-variant"></div>
+<!-- Session Objective -->
+<div class="space-y-4">
+<label class="block font-label-md text-label-md text-on-surface">Primary Objective for this Session</label>
 <div class="grid grid-cols-3 gap-4">
-<label class="cursor-pointer relative">
-<input class="peer sr-only" name="objective" type="radio" value="vent"/>
-<div class="px-4 py-3 bg-surface-dim border border-outline-variant/50 text-center font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant peer-checked:border-secondary peer-checked:text-secondary hover:border-outline transition-colors rounded-none">
-                                    Vent
-                                </div>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="objective" type="radio" value="vent"/>
+<div class="text-center py-3 px-2 rounded-xl bg-surface-container border border-surface-variant peer-checked:bg-secondary-container/30 peer-checked:border-secondary peer-checked:text-primary transition-all">
+<span class="material-symbols-outlined block mb-1 text-on-surface-variant peer-checked:text-secondary">campaign</span>
+<span class="font-label-sm text-label-sm block">Vent</span>
+</div>
 </label>
-<label class="cursor-pointer relative">
+<label class="cursor-pointer">
 <input class="peer sr-only" name="objective" type="radio" value="advice"/>
-<div class="px-4 py-3 bg-surface-dim border border-outline-variant/50 text-center font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant peer-checked:border-secondary peer-checked:text-secondary hover:border-outline transition-colors rounded-none">
-                                    Advice
-                                </div>
+<div class="text-center py-3 px-2 rounded-xl bg-surface-container border border-surface-variant peer-checked:bg-secondary-container/30 peer-checked:border-secondary peer-checked:text-primary transition-all">
+<span class="material-symbols-outlined block mb-1 text-on-surface-variant peer-checked:text-secondary">lightbulb</span>
+<span class="font-label-sm text-label-sm block">Advice</span>
+</div>
 </label>
-<label class="cursor-pointer relative">
+<label class="cursor-pointer">
 <input class="peer sr-only" name="objective" type="radio" value="listen"/>
-<div class="px-4 py-3 bg-surface-dim border border-outline-variant/50 text-center font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant peer-checked:border-secondary peer-checked:text-secondary hover:border-outline transition-colors rounded-none">
-                                    Listen
-                                </div>
+<div class="text-center py-3 px-2 rounded-xl bg-surface-container border border-surface-variant peer-checked:bg-secondary-container/30 peer-checked:border-secondary peer-checked:text-primary transition-all">
+<span class="material-symbols-outlined block mb-1 text-on-surface-variant peer-checked:text-secondary">hearing</span>
+<span class="font-label-sm text-label-sm block">Listen</span>
+</div>
 </label>
 </div>
 </div>
+<!-- Date & Time -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="language">Language</label>
-<select class="w-full bg-surface-dim border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2.5 font-body-md text-body-md text-on-surface rounded-none appearance-none cursor-pointer" id="language">
-<option value="en">English</option>
-<option value="ta">Tamil</option>
-</select>
-<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-on-surface mt-6">
-<span class="material-symbols-outlined">expand_more</span>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface" for="date">Preferred Date</label>
+<input class="w-full bg-secondary-container/10 border-0 border-b-2 border-surface-variant focus:border-on-tertiary-container focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors rounded-t-lg" id="date" name="date" type="date"/>
 </div>
-</div>
-<div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-2" for="date">Preferred Date</label>
-<input class="w-full bg-surface-dim border-0 border-b border-outline-variant focus:border-secondary focus:ring-0 px-3 py-2 font-body-md text-body-md text-on-surface [color-scheme:dark]" id="date" type="date"/>
-</div>
-</div>
-<div>
-<label class="block font-label-bold text-label-bold uppercase text-tertiary mb-4">Preferred Time Slot</label>
-<div class="grid grid-cols-4 gap-2">
-<!-- Example Grid -->
-<label class="cursor-pointer"><input class="peer sr-only" name="time" type="radio"/><div class="py-2 border border-outline-variant/30 text-center font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-secondary peer-checked:text-[#000000] peer-checked:border-secondary hover:bg-surface-container transition-all">09:00</div></label>
-<label class="cursor-pointer"><input class="peer sr-only" name="time" type="radio"/><div class="py-2 border border-outline-variant/30 text-center font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-secondary peer-checked:text-[#000000] peer-checked:border-secondary hover:bg-surface-container transition-all">10:00</div></label>
-<label class="cursor-pointer"><input class="peer sr-only" name="time" type="radio"/><div class="py-2 border border-outline-variant/30 text-center font-label-sm text-label-sm text-on-surface-variant opacity-50 cursor-not-allowed">11:00</div></label>
-<label class="cursor-pointer"><input class="peer sr-only" name="time" type="radio"/><div class="py-2 border border-outline-variant/30 text-center font-label-sm text-label-sm text-on-surface-variant peer-checked:bg-secondary peer-checked:text-[#000000] peer-checked:border-secondary hover:bg-surface-container transition-all">12:00</div></label>
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface">Time Slot</label>
+<div class="flex flex-wrap gap-2">
+<button class="py-2 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors active" type="button">Morning</button>
+<button class="py-2 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">Afternoon</button>
+<button class="py-2 px-4 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">Evening</button>
 </div>
 </div>
 </div>
-<!-- Consent & Submit -->
-<div class="pt-6 space-y-8">
-<label class="flex items-start gap-4 cursor-pointer group">
-<div class="relative flex items-start pt-1">
-<input class="peer sr-only" required="" type="checkbox"/>
-<div class="w-5 h-5 border border-outline-variant bg-transparent peer-checked:bg-secondary peer-checked:border-secondary transition-colors rounded-none flex items-center justify-center">
-<span class="material-symbols-outlined text-[16px] text-black opacity-0 peer-checked:opacity-100">check</span>
+<!-- Consent -->
+<div class="bg-surface-container-low p-4 rounded-xl border border-surface-variant flex items-start gap-4">
+<div class="flex items-center h-5 mt-1">
+<input class="w-5 h-5 rounded border-outline text-secondary focus:ring-secondary focus:ring-2 bg-surface" id="consent" name="consent" type="checkbox"/>
 </div>
+<label class="font-body-md text-body-md text-on-surface-variant" for="consent">
+                        I understand this is a peer-led listening space and not a medical or therapeutic service. I agree to the community guidelines.
+                    </label>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed block pt-1">
-                            I understand this is a peer-led listening space and not a medical/therapeutic service. I agree to the <a class="text-secondary hover:underline underline-offset-2" href="#">guidelines</a>.
-                        </span>
-</label>
-<button class="w-full bg-white text-black font-label-bold text-label-bold uppercase tracking-widest py-4 px-8 hover:shadow-[0_8px_0_0_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+<!-- Submit Action -->
+<div class="pt-4 flex justify-end items-center gap-4">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-4 py-2 transition-colors" type="button">Cancel</button>
+<button class="bg-on-tertiary-container hover:bg-on-tertiary-fixed-variant text-on-primary font-label-md text-label-md py-3 px-8 rounded-[24px] shadow-sm hover:shadow-md hover:scale-[0.98] transition-all duration-200" type="submit">
                         Submit Request
-                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
+                    </button>
 </div>
 </form>
-<!-- Corner Hallmark -->
-<div class="absolute bottom-4 right-4 w-2 h-2 bg-secondary"></div>
 </div>
-</div>
-<!-- Atmospheric Background Element -->
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-<div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#1E293B]/20 blur-[120px] rounded-full"></div>
-<div class="absolute bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-[#E9C349]/5 blur-[150px] rounded-full"></div>
-</div>
+</main>
+<script>
+        // Simple script to handle time slot chip selection visually
+        document.querySelectorAll('button[type="button"]').forEach(btn => {
+            if(btn.textContent.includes('Morning') || btn.textContent.includes('Afternoon') || btn.textContent.includes('Evening')) {
+                btn.addEventListener('click', function() {
+                    // Deselect siblings
+                    this.parentElement.querySelectorAll('button').forEach(b => {
+                        b.classList.remove('bg-secondary', 'text-on-primary');
+                        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                    });
+                    // Select clicked
+                    this.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                    this.classList.add('bg-secondary', 'text-on-primary');
+                });
+            }
+        });
+        
+        // Set default selected state for first chip
+        const firstChip = document.querySelector('button:contains("Morning")') || document.querySelector('button[type="button"]');
+        if(firstChip && firstChip.parentElement.classList.contains('flex-wrap')) {
+            firstChip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+            firstChip.classList.add('bg-secondary', 'text-on-primary');
+        }
+    </script>
 </body></html>
