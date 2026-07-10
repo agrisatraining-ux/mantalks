@@ -1,463 +1,637 @@
-<!-- Updated: 2026-03-27T14:40:00 -->
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark scroll-smooth" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ManTalks – A safe, anonymous space for men to share, listen, and connect. One-on-one peer support sessions in English and Tamil.
- Not therapy. Just humanity." />
-  <meta name="theme-color" content="#0a0a14" />
-  <title>ManTalks — A Brotherhood of Listening</title>
-  
-  <!-- Canonical and Social Meta -->
-  <link rel="canonical" href="https://mantalks.org" />
-  <meta property="og:title" content="ManTalks — A Brotherhood of Listening" />
-  <meta property="og:description" content="A safe, confidential space for men to share, listen, and connect. Peer support in English and Tamil." />
-  <meta property="og:url" content="https://mantalks.org" />
-  <meta property="og:type" content="website" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ManTalks - A Safe Space for Men</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#4f2500",
+                        "inverse-surface": "#e4e1ed",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface": "#13131b",
+                        "on-secondary-container": "#00311f",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#07006c",
+                        "outline": "#908fa0",
+                        "surface-dim": "#13131b",
+                        "primary-fixed": "#e1e0ff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary-fixed": "#002113",
+                        "surface-tint": "#c0c1ff",
+                        "on-surface": "#e4e1ed",
+                        "outline-variant": "#464554",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-secondary": "#003824",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "inverse-primary": "#494bd6",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-container-highest": "#34343d",
+                        "tertiary": "#ffb783",
+                        "secondary-container": "#00a572",
+                        "tertiary-container": "#d97721",
+                        "on-primary-container": "#0d0096",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#34343d",
+                        "secondary": "#4edea3",
+                        "surface-container": "#1f1f27",
+                        "on-tertiary-container": "#452000",
+                        "tertiary-fixed": "#ffdcc5",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#303038",
+                        "on-error": "#690005",
+                        "primary-container": "#8083ff",
+                        "background": "#13131b",
+                        "on-primary": "#1000a9",
+                        "on-background": "#e4e1ed",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-container-lowest": "#0d0d15",
+                        "primary": "#c0c1ff",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-low": "#1b1b23",
+                        "secondary-fixed": "#6ffbbe",
+                        "surface-container-high": "#292932",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "surface-bright": "#393841"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1200px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(19, 19, 27, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <!-- Keep Razorpay -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
-<body>
-
-  <!-- ─── NAVBAR ─── -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="logo.png" alt="ManTalks Logo" class="logo-img" />
-        <span class="logo-text">ManTalks</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#guidelines">Guidelines</a></li>
-        <li><button class="nav-cta open-modal">Time to Open Up &rarr;</button></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#how-it-works" class="mobile-link">How It Works</a>
-      <a href="#guidelines" class="mobile-link">Guidelines</a>
-      <button class="mobile-link mobile-cta open-modal">Time to Open Up &rarr;</button>
-    </div>
-  </nav>
-
-  <!-- ─── HERO ─── -->
-  <section class="hero" id="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Anonymous · Confidential · Judgment-Free
-      </div>
-      <h1 class="hero-headline reveal">
-        A safe space for men<br/>
-        <span class="gradient-text">to share, listen &amp; connect.</span>
-      </h1>
-      <p class="hero-sub reveal">
-        Vent. Reflect. Connect.<br/>
-        Because every voice deserves to be heard.
-      </p>
-      <div class="hero-actions reveal">
-        <button class="btn-primary open-modal" id="hero-cta">
-          <span>Time to Open Up</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-        <a href="#about" class="btn-ghost">Learn More</a>
-      </div>
-      <div class="hero-tags reveal">
-        <span class="tag">#NotTherapy</span>
-        <span class="tag">#JustHumanity</span>
-        <span class="tag">#EnglishAndTamil</span>
-      </div>
-    </div>
-    <div class="hero-visual reveal">
-      <div class="circle-graphic">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
-        <div class="inner-icon">
-          <img src="hero-man.png" alt="Man reflecting" class="hero-carousel-img active" />
-          <img src="hero-trainer.jpg" alt="Trainer" class="hero-carousel-img" />
-          <img src="hero-trainer-2.jpg" alt="Trainer speaking" class="hero-carousel-img" />
-        </div>
-      </div>
-      <div class="floating-cards">
-        <div class="f-card f-card-1">🎙️ &nbsp;<span>Start to share</span></div>
-        <div class="f-card f-card-2">👂 &nbsp;<span>Be heard</span></div>
-        <div class="f-card f-card-3">🤝 &nbsp;<span>Find your circle</span></div>
-      </div>
-    </div>
-    <div class="scroll-hint">
-      <span>Scroll to explore</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- ─── STATS STRIP ─── -->
-  <section class="stats-strip">
-    <div class="stat-item reveal">
-      <div class="stat-num">1-on-1</div>
-      <div class="stat-label">Private sessions</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-num">45–60</div>
-      <div class="stat-label">Minutes per session</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Languages (EN, TA)</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat-item reveal">
-      <div class="stat-num">₹399</div>
-      <div class="stat-label">Per session</div>
-    </div>
-  </section>
-
-  <!-- ─── ABOUT ─── -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-label reveal">About the Initiative</div>
-      <h2 class="section-title reveal">
-        Many men carry unspoken emotions.<br/>
-        <span class="gradient-text">We built a place to let them breathe.</span>
-      </h2>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            Stress, loneliness, doubts, or quiet struggles — they rarely find a safe outlet. ManTalks
-            creates a <strong>confidential, judgment-free space</strong> where men can connect anonymously,
-            in <strong>English and Tamil
-</strong>, to share what's on their minds.
-          </p>
-          <div class="about-image reveal">
-            <img src="about-trainer.jpg" alt="ManTalks Trainer" class="about-img" />
-          </div>
-          <p class="highlight-text">
-            This is not therapy. This is not counselling.<br/>
-            <strong>This is a listening circle — a place to be heard.</strong>
-          </p>
-        </div>
-        <div class="about-cards reveal">
-          <div class="a-card">
-            <div class="a-icon">🔒</div>
-            <h3>Anonymous</h3>
-            <p>Pseudonyms welcome. Camera optional. Your identity is yours to keep.</p>
-          </div>
-          <div class="a-card">
-            <div class="a-icon">🌏</div>
-            <h3>Bilingual</h3>
-            <p>Sessions available in English and Tamil.
-</p>
-          </div>
-          <div class="a-card">
-            <div class="a-icon">👥</div>
-            <h3>Peer-Led</h3>
-            <p>Real humans, real conversations. No professionals, no prescriptions — just connection.</p>
-          </div>
-          <div class="a-card">
-            <div class="a-icon">💬</div>
-            <h3>Structured</h3>
-            <p>Facilitated 45–60 minute slots, progressing from 1-on-1 to small groups over time.</p>
-          </div>
-        </div>
-      </div>
-      <div class="vision-block reveal">
-        <div class="vision-quote">"</div>
-        <p class="vision-text">
-          Our vision is to normalize emotional openness among men, foster supportive communities,
-          and create a brotherhood of listening across languages and cultures.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── HOW IT WORKS ─── -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="section-label reveal">How It Works</div>
-      <h2 class="section-title reveal">Four simple steps to<br/><span class="gradient-text">your first session.</span></h2>
-      <div class="steps-grid">
-        <div class="step-card reveal">
-          <div class="step-num">01</div>
-          <div class="step-icon">🎯</div>
-          <h3>Choose Your Path</h3>
-          <p>Decide what you need — vent freely, seek peer advice, or just connect with someone who listens.</p>
-        </div>
-        <div class="step-card reveal">
-          <div class="step-num">02</div>
-          <div class="step-icon">📅</div>
-          <h3>Pick a Slot</h3>
-          <p>Browse available one-on-one session times (45–60 mins) and book one that works for you.</p>
-        </div>
-        <div class="step-card reveal">
-          <div class="step-num">03</div>
-          <div class="step-icon">🎭</div>
-          <h3>Stay Anonymous</h3>
-          <p>Camera off, pseudonym on. No personal information required. Just show up as you are.</p>
-        </div>
-        <div class="step-card reveal">
-          <div class="step-num">04</div>
-          <div class="step-icon">🌱</div>
-          <h3>Expand Over Time</h3>
-          <p>As comfort grows, move from 1-on-1 conversations into small circles and larger listening groups.</p>
-        </div>
-      </div>
-      <div class="language-note reveal">
-        <span class="lang-badge">EN</span><span class="lang-badge">TA</span>
-        Currently available in <strong>English</strong> and <strong>Tamil</strong>.
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TESTIMONIALS ─── -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-label reveal">Real Voices</div>
-      <h2 class="section-title reveal">Men who spoke up<br/><span class="gradient-text">and felt lighter.</span></h2>
-      <div class="testimonials-track-wrapper">
-        <div class="testimonials-track">
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>I never thought I'd talk to a stranger about my stress at work. But this session genuinely helped me feel less alone.</p>
-            <div class="t-author">— K., 34, Chennai</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>Camera off, pseudonym on. No one judged me. I said things I haven't told my closest friends.</p>
-            <div class="t-author">— R., 28, Bangalore</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>I thought men don't cry. I was wrong. This circle made me realise that being heard is powerful.</p>
-            <div class="t-author">— A., 41, Coimbatore</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>தமிழில் பேசினேன். மனசு லேசா இருந்தது. ரொம்ப நன்றி.</p>
-            <div class="t-author">— S., 37, Madurai</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>It wasn't therapy. It was better. Just a human who genuinely listened. I left feeling 10x lighter.</p>
-            <div class="t-author">— P., 31, Hyderabad</div>
-          </div>
-          <!-- Duplicate cards for infinite scroll effect -->
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>I never thought I'd talk to a stranger about my stress at work. But this session genuinely helped me feel less alone.</p>
-            <div class="t-author">— K., 34, Chennai</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>Camera off, pseudonym on. No one judged me. I said things I haven't told my closest friends.</p>
-            <div class="t-author">— R., 28, Bangalore</div>
-          </div>
-          <div class="testimonial-card">
-            <div class="t-quote">&ldquo;</div>
-            <p>I thought men don't cry. I was wrong. This circle made me realise that being heard is powerful.</p>
-            <div class="t-author">— A., 41, Coimbatore</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── GUIDELINES ─── -->
-  <section class="guidelines" id="guidelines">
-    <div class="container">
-      <div class="section-label reveal">SESSION GUIDELINES</div>
-      <h2 class="section-title reveal">The only rules here are<br/><span class="gradient-text">respect and honesty.</span></h2>
-      <div class="guide-grid">
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>Respect confidentiality</h4>
-            <p>What is shared here stays here. Always.</p>
-          </div>
-        </div>
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>No judgment, trolling, or abuse</h4>
-            <p>This is a safe space. Abusive behaviour will result in removal.</p>
-          </div>
-        </div>
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>Peer support — not therapy</h4>
-            <p>This is a listening circle. Not a substitute for professional help.</p>
-          </div>
-        </div>
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>Respectful presence is mandatory</h4>
-            <p>Camera use is optional, but showing up with full attention is not.</p>
-          </div>
-        </div>
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>Advice only when asked</h4>
-            <p>Sometimes people just want to be heard. Don't fix — just listen.</p>
-          </div>
-        </div>
-        <div class="guide-item reveal">
-          <div class="guide-check">✓</div>
-          <div>
-            <h4>You may leave at any time</h4>
-            <p>No pressure. No guilt. Your comfort comes first — always.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── JOIN ─── -->
-      <div class="cta-row reveal" style="text-align: center; margin-top: 48px;">
-        <button class="btn-primary btn-large open-modal">Join the Circle Now</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── STICKY MOBILE PILL ─── -->
-  <div class="sticky-mobile-cta" id="stickyMobileCta">
-    <button class="sticky-pill open-modal">
-      <span>Join the Circle</span>
-      <span class="sticky-price">₹399</span>
-    </button>
-  </div>
-
-  <!-- ─── MODAL (POPUP FORM) ─── -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
-      <div class="modal-header">
-        <div class="section-label">Book Your Session</div>
-        <h2 class="modal-title">Take the first step <span class="gradient-text">toward openness.</span></h2>
-        <p class="modal-sub"><strong>Note: This is not free, we charge ₹399 for this session.</strong></p>
-      </div>
-      
-      <form class="join-form" id="joinForm" novalidate>
-        <div class="form-row">
-          <div class="form-group full-width">
-            <label for="display-name">Your Name</label>
-            <input type="text" id="display-name" name="displayName" placeholder="e.g. Karthik" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="e.g. +91 98765 43210" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group full-width">
-            <label>Preferred Language</label>
-            <div class="pill-group" id="language-pills">
-              <button type="button" class="pill-btn" data-value="english" data-field="language">🇬🇧 English</button>
-              <button type="button" class="pill-btn" data-value="tamil" data-field="language">🇮🇳 Tamil</button>
+<body class="bg-background text-on-background antialiased relative min-h-screen overflow-x-hidden">
+<!-- Background Shader -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-40 mix-blend-screen">
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    uv.x *= u_resolution.x / u_resolution.y;
+    float noise = sin(uv.x * 2.0 + u_time * 0.2) * cos(uv.y * 2.0 + u_time * 0.1);
+    vec3 color1 = vec3(0.05, 0.05, 0.1); 
+    vec3 color2 = vec3(0.08, 0.08, 0.15); 
+    vec3 finalColor = mix(color1, color2, noise * 0.5 + 0.5);
+    float pulse = sin(u_time * 0.3) * 0.5 + 0.5;
+    finalColor += vec3(0.02, 0.02, 0.05) * pulse;
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+</div>
+<!-- TopNavBar -->
+<header class="bg-surface/70 dark:bg-surface/70 backdrop-blur-xl font-body-md text-body-md fixed top-0 w-full z-50 border-b border-white/10 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface">
+                ManTalks
             </div>
-            <input type="hidden" id="language" name="language" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group full-width">
-            <label>What brings you here?</label>
-            <div class="pill-group" id="session-pills">
-              <button type="button" class="pill-btn" data-value="vent" data-field="sessionType">🎙️ I want to vent</button>
-              <button type="button" class="pill-btn" data-value="advice" data-field="sessionType">💬 Peer advice</button>
-              <button type="button" class="pill-btn" data-value="listen" data-field="sessionType">🤝 Just connect</button>
-            </div>
-            <input type="hidden" id="session-type" name="sessionType" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="date">Preferred Date</label>
-            <input type="date" id="date" name="date" required />
-          </div>
-          <div class="form-group">
-            <label for="time-pref">Preferred Time Slot</label>
-            <select id="time-pref" name="timePref" required>
-              <option value="" disabled selected>Select a time</option>
-              <option value="Sunday Afternoon at 12:00 PM">Sunday Afternoon (12pm – 1pm)</option>
-              <option value="Sunday Afternoon at 01:00 PM">Sunday Afternoon (1pm – 2pm)</option>
-              <option value="Evening at 06:00 PM">Evening (6pm – 7pm)</option>
-              <option value="Evening at 07:00 PM">Evening (7pm – 8pm)</option>
-              <option value="Evening at 08:00 PM">Evening (8pm – 9pm)</option>
-              <option value="Night at 09:00 PM">Night (9pm – 10pm)</option>
-              <option value="Night at 10:00 PM">Night (10pm – 11pm)</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-consent">
-          <input type="checkbox" id="consent" name="consent" required />
-          <label for="consent">
-            I agree to the <a href="#guidelines" class="link">Session Guidelines</a>.
-          </label>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn-primary btn-full" id="submit-btn">
-            <span class="btn-text">Start Your Session</span>
-            <span class="btn-loading" style="display:none">Submitting...</span>
-          </button>
-        </div>
-        <div class="form-success" id="formSuccess" style="display:none">
-          <div class="success-icon">✓</div>
-          <h3>You're in the circle.</h3>
-          <p>We'll reach out within 24 hours with your session details.</p>
-        </div>
-      </form>
-    </div>
-  </div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#about">About</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#how-it-works">How It Works</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#guidelines">Guidelines</a>
+</nav>
+<button class="hidden md:flex font-label-sm text-label-sm bg-inverse-primary text-on-primary px-6 py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 active:scale-95 shadow-[0_0_15px_rgba(73,75,214,0.3)]" onclick="toggleModal()">
+                Time to Open Up
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24 space-y-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative" id="hero">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center min-h-[716px]">
+<div class="space-y-8 z-10 reveal">
+<div class="inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full font-label-sm text-label-sm text-primary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        Anonymous · Confidential · Judgment-Free
+                    </div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
+                        A safe space for men to share, listen &amp; connect.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Vent. Reflect. Connect. Because every voice deserves to be heard.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-inverse-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-full hover:shadow-[0_0_20px_rgba(73,75,214,0.5)] transition-all duration-300 font-semibold tracking-wide" onclick="toggleModal()">
+                            Time to Open Up
+                        </button>
+<a class="glass-panel text-on-surface font-label-sm text-label-sm px-8 py-4 rounded-full hover:border-primary/50 transition-colors duration-300 flex items-center gap-2" href="#about">
+                            Learn More
+                            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+</a>
+</div>
+<div class="flex gap-4 font-label-sm text-label-sm text-outline pt-4">
+<span>#NotTherapy</span>
+<span>#JustHumanity</span>
+<span>#EnglishAndTamil</span>
+</div>
+</div>
+<!-- Hero Visual Concept -->
+<div class="relative h-[500px] hidden lg:block reveal" style="transition-delay: 0.2s">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-3xl overflow-hidden glass-panel">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=2070&auto=format&fit=crop')"></div>
+</div>
+<!-- Floating Cards -->
+<div class="absolute top-1/4 -left-8 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 0s;">
+<span class="material-symbols-outlined text-primary text-[24px]">forum</span>
+<span class="font-label-sm text-label-sm text-on-surface">Start to share</span>
+</div>
+<div class="absolute bottom-1/3 -right-4 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 2s;">
+<span class="material-symbols-outlined text-secondary text-[24px]">hearing</span>
+<span class="font-label-sm text-label-sm text-on-surface">Be heard</span>
+</div>
+<div class="absolute top-2/3 left-1/4 glass-panel p-4 rounded-xl flex items-center gap-4 animate-float" style="animation-delay: 4s;">
+<span class="material-symbols-outlined text-tertiary text-[24px]">group</span>
+<span class="font-label-sm text-label-sm text-on-surface">Find your circle</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Strip -->
+<section class="border-y border-white/5 bg-surface-container/50 reveal">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
+<div class="text-center px-4">
+<div class="font-headline-md text-headline-md text-primary mb-1">1-on-1</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Private sessions</div>
+</div>
+<div class="text-center px-4">
+<div class="font-headline-md text-headline-md text-primary mb-1">45–60</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Minutes per session</div>
+</div>
+<div class="text-center px-4">
+<div class="font-headline-md text-headline-md text-primary mb-1">2</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Languages (EN, TA)</div>
+</div>
+<div class="text-center px-4">
+<div class="font-headline-md text-headline-md text-primary mb-1">₹399</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Per session</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop reveal" id="about">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-6">
+<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
+                        Many men carry unspoken emotions. We built a place to let them breathe.
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Society often expects men to shoulder burdens silently. ManTalks provides a confidential, judgment-free listening space where you can drop the armor. Available in English and Tamil, this is a peer-to-peer network designed for genuine human connection.
+                    </p>
+<div class="glass-panel border-l-4 border-l-inverse-primary p-6 rounded-r-xl">
+<p class="font-body-lg text-body-lg font-medium text-on-surface italic">
+                            "This is not therapy. This is a listening circle."
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">lock</span>
+<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Anonymous</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Your identity remains completely private. No pressure.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">translate</span>
+<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Bilingual</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Express yourself comfortably in English or Tamil.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">diversity_3</span>
+<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Peer-Led</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">Connect with trained peers who understand the journey.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl hover:border-primary/30 transition-colors duration-300 group">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px] group-hover:scale-110 transition-transform">schedule</span>
+<h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Structured</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant">45-60 minute focused sessions with clear boundaries.</p>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- ─── FOOTER ─── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">
-        <img src="logo.png" alt="ManTalks Logo" class="logo-img" />
-        <span class="logo-text">ManTalks</span>
-      </div>
-      <div class="footer-taglines">
-        <span>"Every man deserves to be heard."</span>
-        <span class="sep">·</span>
-        <span>"Not therapy. Just humanity."</span>
-        <span class="sep">·</span>
-        <span>"A brotherhood of listening."</span>
-      </div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#guidelines">Guidelines</a>
-        <button class="footer-cta open-modal">Join</button>
-      </div>
-      <p class="footer-note">
-        This is a voluntary peer-support initiative. It is not a substitute for professional mental health services.<br/>
-        If you are in crisis, please contact a mental health professional or helpline.
-      </p>
-      <p class="footer-copy">© 2026 ManTalks. All rights reserved.</p>
+<!-- How it works -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal" id="how-it-works">
+    <div class="mb-12 text-center">
+        <h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
+            How It Works
+        </h2>
     </div>
-  </footer>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="glass-panel p-6 rounded-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">1</div>
+            <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Choose Your Path</h3>
+        </div>
+        <div class="glass-panel p-6 rounded-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">2</div>
+            <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Pick a Slot</h3>
+        </div>
+        <div class="glass-panel p-6 rounded-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">3</div>
+            <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Stay Anonymous</h3>
+        </div>
+        <div class="glass-panel p-6 rounded-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 text-primary font-bold">4</div>
+            <h3 class="font-headline-md text-body-lg font-semibold text-on-surface mb-2">Expand Over Time</h3>
+        </div>
+    </div>
+</section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- Guidelines -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal" id="guidelines">
+    <div class="mb-12 text-center">
+        <h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface">
+            Session Guidelines
+        </h2>
+        <p class="font-body-md text-on-surface-variant mt-2">The only rules here are respect and honesty.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">Respect confidentiality</p>
+        </div>
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">No judgment</p>
+        </div>
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">Peer support</p>
+        </div>
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">Respectful presence</p>
+        </div>
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">Advice only when asked</p>
+        </div>
+        <div class="flex gap-4 items-start bg-surface-container/30 p-4 rounded-lg">
+            <span class="material-symbols-outlined text-primary">check_circle</span>
+            <p class="font-body-md text-on-surface-variant">You may leave at any time</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 reveal">
+<div class="glass-panel rounded-3xl p-12 text-center relative overflow-hidden flex flex-col items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-primary/10 to-transparent pointer-events-none"></div>
+<h2 class="font-headline-lg-mobile md:font-headline-md text-headline-lg-mobile md:text-headline-md text-on-surface mb-6 relative z-10">
+                    Ready to drop the weight?
+                </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-2xl relative z-10">
+                    Join hundreds of men who are discovering the quiet strength of speaking their truth in a supportive, anonymous environment.
+                </p>
+<button class="relative z-10 bg-inverse-primary text-on-primary font-label-sm text-label-sm px-10 py-5 rounded-full hover:scale-105 transition-transform duration-300 font-semibold tracking-wide shadow-[0_0_30px_rgba(73,75,214,0.4)]" onclick="toggleModal()">
+                    Join the Circle Now
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest font-body-md text-body-md text-secondary dark:text-secondary w-full py-16 border-t border-outline-variant/30 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2 space-y-4">
+<div class="text-headline-md font-headline-md text-on-surface font-bold">ManTalks</div>
+<p class="text-on-surface-variant max-w-sm">A confidential listening space designed to help men process emotions, share experiences, and find peer support without judgment.</p>
+<div class="font-label-sm text-label-sm text-on-surface-variant pt-4">© 2026 ManTalks. All rights reserved.</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Resources</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Guidelines</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Legal</h4>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer w-fit" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Booking Modal -->
+<div class="fixed inset-0 z-[100] hidden items-center justify-center p-4" id="booking-modal">
+<div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="toggleModal()"></div>
+<div class="glass-panel w-full max-w-lg rounded-2xl p-8 relative z-10 animate-fade-in-up shadow-2xl border border-white/20 h-[80vh] overflow-y-auto">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Book a Session</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant mb-8">Your details are kept strictly confidential.</p>
+<!-- Form Integration -->
+<form class="space-y-5" id="joinForm" novalidate>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Your Name</label>
+<input id="display-name" name="displayName" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="e.g. Karthik" type="text" required/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Email Address</label>
+<input id="email" name="email" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="you@example.com" type="email" required/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Phone Number</label>
+<input id="phone" name="phone" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="+91 98765 43210" type="tel" required/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Language</label>
+<select id="language" name="language" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<option value="" disabled selected>Select</option>
+<option value="english">English</option>
+<option value="tamil">Tamil</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Session Type</label>
+<select id="session-type" name="sessionType" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<option value="" disabled selected>Select</option>
+<option value="vent">I want to vent</option>
+<option value="advice">I'd like peer advice</option>
+<option value="listen">I just want to connect</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Preferred Date</label>
+<input id="date" name="date" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" type="date" required/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-2">Time Slot</label>
+<select id="time-pref" name="timePref" class="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-3 text-on-surface font-body-md focus:border-primary outline-none appearance-none" required>
+<option value="" disabled selected>Select time</option>
+<option value="morning">Morning (6am – 10am)</option>
+<option value="noon">Afternoon (12pm – 3pm)</option>
+<option value="evening">Evening (6pm – 9pm)</option>
+<option value="night">Night (9pm – 11pm)</option>
+</select>
+</div>
+</div>
+<div class="pt-4 flex items-start gap-3">
+<input class="mt-1 w-4 h-4 rounded border-outline-variant bg-surface-container text-primary focus:ring-primary focus:ring-offset-background" id="consent" name="consent" required type="checkbox"/>
+<label class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed" for="consent">
+                        I agree to the <a href="#guidelines" class="text-primary hover:underline">Session Guidelines</a>.
+                    </label>
+</div>
+<button id="submit-btn" class="w-full bg-inverse-primary text-on-primary font-label-sm text-label-sm px-6 py-4 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300 font-semibold tracking-wide mt-4" type="submit">
+                    <span class="btn-text">Continue to Payment (₹399)</span>
+                    <span class="btn-loading" style="display:none">Processing...</span>
+                </button>
+<div id="formSuccess" style="display:none;" class="mt-4 p-4 rounded bg-primary/20 text-primary text-center">
+    <h3>You're in the circle.</h3>
+    <p>We'll reach out within 24 hours.</p>
+</div>
+</form>
+</div>
+</div>
+<!-- Keep your original script.js logic right here, embedded to ensure functionality remains intact -->
+<script>
+        // Modal Toggle
+        function toggleModal() {
+            const modal = document.getElementById('booking-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Scroll Reveal Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger on load
+        });
+
+        // Razorpay and Form Logic
+        const joinForm = document.getElementById('joinForm');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const formSuccess = document.getElementById('formSuccess');
+
+        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
+
+        joinForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const consent = document.getElementById('consent');
+          if (!consent.checked) return alert('Please agree to the guidelines.');
+
+          const requiredFields = joinForm.querySelectorAll('[required]');
+          let valid = true;
+          requiredFields.forEach((field) => {
+            if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+              field.style.borderColor = 'red';
+              valid = false;
+            } else {
+              field.style.borderColor = '';
+            }
+          });
+
+          if (!valid) return;
+
+          const formData = {
+            displayName: joinForm.displayName.value.trim(),
+            email: joinForm.email.value.trim(),
+            phone: joinForm.phone.value.trim(),
+            language: joinForm.language.value,
+            sessionType: joinForm.sessionType.value,
+            date: joinForm.date.value,
+            timePref: joinForm.timePref.value,
+            timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+          };
+
+          const RAZOR_KEY = 'rzp_test_SYC8v7uS7PKDuo';
+          
+          const options = {
+            "key": RAZOR_KEY,
+            "amount": "39900",
+            "currency": "INR",
+            "name": "ManTalks",
+            "description": "Session Registration Fee",
+            "handler": async function (response) {
+              formData.paymentId = response.razorpay_payment_id;
+              
+              btnText.style.display = 'none';
+              btnLoading.style.display = 'inline';
+              submitBtn.disabled = true;
+
+              try {
+                  const res = await fetch(GOOGLE_SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                  });
+                  
+                  joinForm.style.display = 'none';
+                  formSuccess.style.display = 'block';
+                  
+                  setTimeout(() => {
+                    window.location.href = 'https://wa.me/917530054441?text=Hi, I just registered for ManTalks.';
+                  }, 3000);
+                  
+              } catch (err) {
+                console.error('Submission error:', err);
+                alert('Data storage failed, but your payment was successful.');
+              }
+            },
+            "prefill": {
+              "name": formData.displayName,
+              "email": formData.email,
+              "contact": formData.phone
+            },
+            "theme": { "color": "#1A7F5A" }
+          };
+
+          const rzp = new Razorpay(options);
+          rzp.on('payment.failed', function (response) {
+            alert('Payment failed: ' + response.error.description);
+          });
+          rzp.open();
+        });
+    </script>
+</body></html>
