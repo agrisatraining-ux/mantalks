@@ -125,9 +125,9 @@
 <!-- TopNavBar -->
 <nav class="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
-<div class="font-headline-md text-headline-md font-semibold text-primary">
-                ManTalks
-            </div>
+<a href="#" class="flex items-center">
+                <img src="logo.png" alt="ManTalks Logo" class="h-14 w-auto object-contain mix-blend-multiply">
+            </a>
 <div class="hidden md:flex items-center gap-8">
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#how-it-works">How It Works</a>
@@ -351,8 +351,8 @@
 </main>
 <!-- Footer -->
 <footer class="w-full bg-surface-container dark:bg-surface-container-highest flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap max-w-container-max-width mx-auto gap-8">
-<div class="font-headline-md text-headline-md text-primary dark:text-on-primary-fixed">
-            ManTalks
+<div class="flex items-center">
+            <img src="logo.png" alt="ManTalks Logo" class="h-10 w-auto object-contain mix-blend-multiply">
         </div>
 <div class="flex flex-wrap justify-center gap-6">
 <a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary-fixed-dim underline transition-all" href="#">Privacy</a>
@@ -371,7 +371,9 @@
 <button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" onclick="document.getElementById('booking-modal').classList.add('hidden')">
 <span class="material-symbols-outlined text-[24px]">close</span>
 </button>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter mb-2">ManTalks</h1>
+<div class="mb-4">
+    <img src="logo.png" alt="ManTalks Logo" class="h-12 w-auto object-contain mix-blend-multiply">
+</div>
 <h2 class="font-body-lg text-body-lg text-secondary mb-8">Session Request</h2>
 
 <form class="space-y-8" id="joinForm" novalidate>
