@@ -16,9 +16,9 @@ reveals.forEach((el) => observer.observe(el));
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) {
-    navbar.classList.add('scrolled');
+    navbar?.classList.add('scrolled');
   } else {
-    navbar.classList.remove('scrolled');
+    navbar?.classList.remove('scrolled');
   }
 });
 
@@ -32,8 +32,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
       // Close mobile menu if open
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('active');
+      mobileMenu?.classList.remove('open');
+      hamburger?.classList.remove('active');
     }
   });
 });
@@ -42,9 +42,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  mobileMenu.classList.toggle('open');
+if(hamburger) hamburger.addEventListener('click', () => {
+  hamburger?.classList.toggle('active');
+  mobileMenu?.classList.toggle('open');
 });
 
 // ── Form Submission ───────────────────────────────────────────────────────────
