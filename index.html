@@ -122,6 +122,8 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+    <!-- Subtle Site Background Watermark -->
+    <div class="fixed inset-0 z-[-1] bg-[url('site_background.png')] bg-cover bg-center opacity-[0.04] pointer-events-none"></div>
 <!-- TopNavBar -->
 <nav class="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
@@ -500,16 +502,18 @@
 <!-- Booking Modal (Hidden by Default) -->
 <div class="fixed inset-0 z-[100] hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300" id="booking-modal">
 <div class="bg-surface-container max-w-2xl w-full p-6 md:p-8 rounded-2xl shadow-2xl relative max-h-[95vh] border border-outline-variant/20">
+        <!-- Subtle Form Modal Background Watermark -->
+        <div class="absolute inset-0 z-0 bg-[url('form_background.png')] bg-no-repeat bg-right-bottom bg-[length:220px_auto] opacity-[0.06] pointer-events-none rounded-2xl"></div>
 <button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" id="closeModal">
 <span class="material-symbols-outlined text-[24px]">close</span>
 </button>
-<div class="flex items-center gap-3 mb-3">
+<div class="flex items-center gap-3 mb-3 relative z-10">
     <img src="logo.png" alt="ManTalks Logo" class="rounded-full shadow-md aspect-square h-12 w-auto object-contain">
     <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter uppercase">MANTALKS</h1>
 </div>
-<h2 class="font-body-md text-body-md font-semibold text-secondary mb-3">Session Request</h2>
+<h2 class="font-body-md text-body-md font-semibold text-secondary mb-3 relative z-10">Session Request</h2>
 
-<form class="space-y-4" id="joinForm" novalidate>
+<form class="space-y-4 relative z-10" id="joinForm" novalidate>
 <!-- Personal Info -->
 <div class="space-y-3">
 <div class="relative group">
