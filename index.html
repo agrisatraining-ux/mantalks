@@ -134,7 +134,7 @@
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#how-it-works">How It Works</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#guidelines">Guidelines</a>
 </div>
-<button class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-on-primary-fixed-variant transition-colors btn-press" onclick="document.getElementById(\'booking-modal\').classList.remove(\'hidden\')">
+<button class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-on-primary-fixed-variant transition-colors btn-press open-modal">
                 Time to Open Up
             </button>
 <!-- Mobile Menu Button -->
@@ -164,7 +164,7 @@
 <span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-4 py-2 rounded-full">#EnglishAndTamil</span>
 </div>
 <div class="flex flex-col sm:flex-row gap-4 mt-4">
-<button class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-on-primary-fixed-variant transition-colors btn-press" onclick="document.getElementById(\'booking-modal\').classList.remove(\'hidden\')">
+<button class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full hover:bg-on-primary-fixed-variant transition-colors btn-press open-modal">
                             Time to Open Up
                         </button>
 <button class="inline-flex items-center justify-center border-2 border-outline-variant text-on-surface font-label-md text-label-md px-8 py-4 rounded-full hover:border-outline hover:bg-surface-container-low transition-colors btn-press">
@@ -474,7 +474,7 @@
 <h2 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary-fixed mb-8">
                     Ready to drop the weight?
                 </h2>
-<button class="inline-flex items-center justify-center bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary-fixed-dim transition-colors btn-press text-lg shadow-lg" onclick="document.getElementById(\'booking-modal\').classList.remove(\'hidden\')">
+<button class="inline-flex items-center justify-center bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-8 py-4 rounded-full hover:bg-primary-fixed-dim transition-colors btn-press text-lg shadow-lg open-modal">
                     Join the Circle Now
                 </button>
 </div>
@@ -500,7 +500,7 @@
 <!-- Booking Modal (Hidden by Default) -->
 <div class="fixed inset-0 z-[100] hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300" id="booking-modal">
 <div class="bg-surface-container max-w-2xl w-full p-8 md:p-12 rounded-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto border border-outline-variant/20">
-<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" onclick="document.getElementById('booking-modal').classList.add('hidden')">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" id="closeModal">
 <span class="material-symbols-outlined text-[24px]">close</span>
 </button>
 <div class="flex items-center gap-3 mb-6">
@@ -593,127 +593,6 @@
 </div>
 </div>
 
-<script>
-        // Intersection Observer for fade-in animations
-        document.addEventListener("DOMContentLoaded", function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in-section').forEach((section) => {
-                observer.observe(section);
-            });
-            
-            // Trigger first section immediately if in viewport
-            setTimeout(() => {
-                document.querySelectorAll('.fade-in-section').forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if(rect.top < window.innerHeight) {
-                        section.classList.add('is-visible');
-                    }
-                });
-            }, 100);
-        });
-        
-        // Razorpay and Form Logic
-        const joinForm = document.getElementById('joinForm');
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const btnLoading = submitBtn.querySelector('.btn-loading');
-        const formSuccess = document.getElementById('formSuccess');
-
-        const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
-
-        joinForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-
-          const consent = document.getElementById('consent');
-          if (!consent.checked) return alert('Please agree to the guidelines.');
-
-          const requiredFields = joinForm.querySelectorAll('[required]');
-          let valid = true;
-          requiredFields.forEach((field) => {
-            if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
-              field.style.borderColor = 'red';
-              valid = false;
-            } else {
-              field.style.borderColor = '';
-            }
-          });
-
-          if (!valid) return;
-
-          const formData = {
-            displayName: joinForm.displayName.value.trim(),
-            email: joinForm.email.value.trim(),
-            phone: joinForm.phone.value.trim(),
-            language: joinForm.language.value,
-            sessionType: joinForm.sessionType.value,
-            date: joinForm.date.value,
-            timePref: joinForm.timePref.value,
-            timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
-          };
-
-          const RAZOR_KEY = 'rzp_test_SYC8v7uS7PKDuo';
-          
-          const options = {
-            "key": RAZOR_KEY,
-            "amount": "39900",
-            "currency": "INR",
-            "name": "ManTalks",
-            "description": "Session Registration Fee",
-            "handler": async function (response) {
-              formData.paymentId = response.razorpay_payment_id;
-              
-              btnText.style.display = 'none';
-              btnLoading.style.display = 'inline';
-              submitBtn.disabled = true;
-
-              try {
-                  const res = await fetch(GOOGLE_SHEET_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData),
-                  });
-                  
-                  joinForm.style.display = 'none';
-                  formSuccess.style.display = 'block';
-                  
-                  setTimeout(() => {
-                    window.location.href = 'https://wa.me/917530054441?text=Hi, I just registered for ManTalks.';
-                  }, 3000);
-                  
-              } catch (err) {
-                console.error('Submission error:', err);
-                alert('Data storage failed, but your payment was successful.');
-              }
-            },
-            "prefill": {
-              "name": formData.displayName,
-              "email": formData.email,
-              "contact": formData.phone
-            },
-            "theme": { "color": "#1b8b32" }
-          };
-
-          const rzp = new Razorpay(options);
-          rzp.on('payment.failed', function (response) {
-            alert('Payment failed: ' + response.error.description);
-          });
-          rzp.open();
-        });
-    </script>
     <script src="script.js"></script>
 </body></html>
