@@ -562,10 +562,16 @@
 <label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="time-pref">Time Slot</label>
 <select id="time-pref" name="timePref" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select time</option>
-<option value="morning">Morning (6am – 10am)</option>
-<option value="noon">Afternoon (12pm – 3pm)</option>
-<option value="evening">Evening (6pm – 9pm)</option>
-<option value="night">Night (9pm – 11pm)</option>
+<!-- Sunday-only afternoon slots (shown only on Sundays by JS) -->
+<option value="Sunday 12:00 PM - 1:00 PM" data-sunday="true">Sunday Afternoon 12:00 PM – 1:00 PM</option>
+<option value="Sunday 1:00 PM - 2:00 PM" data-sunday="true">Sunday Afternoon 1:00 PM – 2:00 PM</option>
+<!-- Evening slots (all days) -->
+<option value="Evening 6:00 PM - 7:00 PM">Evening 6:00 PM – 7:00 PM</option>
+<option value="Evening 7:00 PM - 8:00 PM">Evening 7:00 PM – 8:00 PM</option>
+<option value="Evening 8:00 PM - 9:00 PM">Evening 8:00 PM – 9:00 PM</option>
+<!-- Night slots (all days) -->
+<option value="Night 9:00 PM - 10:00 PM">Night 9:00 PM – 10:00 PM</option>
+<option value="Night 10:00 PM - 11:00 PM">Night 10:00 PM – 11:00 PM</option>
 </select>
 </div>
 </div>
