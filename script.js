@@ -145,46 +145,80 @@ document.addEventListener('keydown', (e) => {
 const dateInput = document.getElementById('date');
 const timePrefSelect = document.getElementById('time-pref');
 
-if (dateInput && timePrefSelect) {
-  const allTimeOptions = Array.from(timePrefSelect.options);
-  
-  dateInput.addEventListener('change', (e) => {
-    const selectedDate = new Date(e.target.value);
-    const isSunday = !isNaN(selectedDate.getTime()) && selectedDate.getDay() === 0;
-    
-    const currentValue = timePrefSelect.value;
-    
-    timePrefSelect.innerHTML = '';
-    
-    const bookedForDate = bookedSlotsData
-      .filter(slot => slot.date === e.target.value)
-      .map(slot => slot.timePref);
-    
-    allTimeOptions.forEach(option => {
-      const optClone = option.cloneNode(true);
-      const isSundaySlot = optClone.value.includes('Sunday');
-      
-      if (isSundaySlot && !isSunday) {
-        return;
-      }
-      
-      if (optClone.value && bookedForDate.includes(optClone.value)) {
-        optClone.disabled = true;
-        optClone.style.color = 'red';
-        optClone.textContent = optClone.textContent.replace(' (Booked)', '') + ' (Booked)';
-      }
-      
-      timePrefSelect.appendChild(optClone);
-    });
-    
-    if (Array.from(timePrefSelect.options).some(opt => opt.value === currentValue && !opt.disabled)) {
-      timePrefSelect.value = currentValue;
+// All defined slots (matches the HTML options exactly)
+const EVENING_SLOTS = [
+  { value: 'Evening 6:00 PM - 7:00 PM', label: 'Evening 6:00 PM – 7:00 PM' },
+  { value: 'Evening 7:00 PM - 8:00 PM', label: 'Evening 7:00 PM – 8:00 PM' },
+  { value: 'Evening 8:00 PM - 9:00 PM', label: 'Evening 8:00 PM – 9:00 PM' },
+];
+const NIGHT_SLOTS = [
+  { value: 'Night 9:00 PM - 10:00 PM', label: 'Night 9:00 PM – 10:00 PM' },
+  { value: 'Night 10:00 PM - 11:00 PM', label: 'Night 10:00 PM – 11:00 PM' },
+];
+const SUNDAY_AFTERNOON_SLOTS = [
+  { value: 'Sunday 12:00 PM - 1:00 PM', label: 'Sunday Afternoon 12:00 PM – 1:00 PM' },
+  { value: 'Sunday 1:00 PM - 2:00 PM', label: 'Sunday Afternoon 1:00 PM – 2:00 PM' },
+];
+
+function buildTimeSlotDropdown(dateValue) {
+  if (!timePrefSelect) return;
+
+  const selectedDate = new Date(dateValue);
+  const isSunday = !isNaN(selectedDate.getTime()) && selectedDate.getDay() === 0;
+
+  const bookedForDate = bookedSlotsData
+    .filter(slot => slot.date === dateValue)
+    .map(slot => slot.timePref);
+
+  const currentValue = timePrefSelect.value;
+  timePrefSelect.innerHTML = '';
+
+  // Add placeholder
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  placeholder.textContent = 'Select time';
+  timePrefSelect.appendChild(placeholder);
+
+  // Build list: Sunday afternoon first (only on Sundays), then Evening, then Night
+  const slotsToShow = [
+    ...(isSunday ? SUNDAY_AFTERNOON_SLOTS : []),
+    ...EVENING_SLOTS,
+    ...NIGHT_SLOTS,
+  ];
+
+  slotsToShow.forEach(slot => {
+    const opt = document.createElement('option');
+    opt.value = slot.value;
+    const isBooked = bookedForDate.includes(slot.value);
+    if (isBooked) {
+      opt.disabled = true;
+      opt.style.color = 'red';
+      opt.textContent = slot.label + ' (Booked)';
     } else {
-      timePrefSelect.value = "";
+      opt.textContent = slot.label;
     }
+    timePrefSelect.appendChild(opt);
   });
 
-  dateInput.dispatchEvent(new Event('change'));
+  // Restore previous selection if still valid and not booked
+  if (currentValue && Array.from(timePrefSelect.options).some(opt => opt.value === currentValue && !opt.disabled)) {
+    timePrefSelect.value = currentValue;
+  } else {
+    timePrefSelect.value = '';
+  }
+}
+
+if (dateInput && timePrefSelect) {
+  dateInput.addEventListener('change', (e) => {
+    buildTimeSlotDropdown(e.target.value);
+  });
+
+  // Trigger on load if a date is already set
+  if (dateInput.value) {
+    buildTimeSlotDropdown(dateInput.value);
+  }
 }
 
 // ── Form Submission ───────────────────────────────────────────────────────────
