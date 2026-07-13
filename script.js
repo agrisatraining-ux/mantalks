@@ -12,34 +12,6 @@ const observer = new IntersectionObserver(
 );
 reveals.forEach((el) => observer.observe(el));
 
-// ── Pill Button Selection ─────────────────────────────────────────────────────
-document.querySelectorAll('.pill-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const field = btn.dataset.field;
-    // Deselect all sibling pills in the same group
-    document.querySelectorAll(`.pill-btn[data-field="${field}"]`).forEach(b => b.classList.remove('selected'));
-    // Select this one
-    btn.classList.add('selected');
-    // Sync the hidden input value
-    const hiddenInput = document.querySelector(`input[name="${field}"]`);
-    if (hiddenInput) hiddenInput.value = btn.dataset.value;
-  });
-});
-
-// ── Sticky Mobile CTA ─────────────────────────────────────────────────────────
-const stickyMobileCta = document.getElementById('stickyMobileCta');
-const heroSection = document.getElementById('hero');
-if (stickyMobileCta && heroSection) {
-  window.addEventListener('scroll', () => {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    if (heroBottom < 0) {
-      stickyMobileCta.classList.add('visible');
-    } else {
-      stickyMobileCta.classList.remove('visible');
-    }
-  });
-}
-
 // ── Navbar Transparency on Scroll ────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -66,123 +38,14 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// ── Hamburger Menu ────────────────────────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('open');
 });
-
-// Google Sheets Web App URL — replace with your deployed script URL
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxVNdgtjyybwsCXiFzASp8crAomN0F66ThqfjJEwK336bdLbPoKMHH1IGODl_fUJaWH/exec';
-
-let bookedSlotsData = [];
-async function fetchBookedSlots() {
-  if (GOOGLE_SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
-  try {
-    const res = await fetch(GOOGLE_SHEET_URL + "?action=getBookedSlots");
-    const data = await res.json();
-    if (data.status === 'success') {
-      bookedSlotsData = data.bookedSlots;
-    }
-  } catch (err) {
-    console.error("Failed to fetch booked slots:", err);
-  }
-}
-
-// ── Modal Logic ──────────────────────────────────────────────────────────────
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtn = document.getElementById('closeModal');
-const openModalBtns = document.querySelectorAll('.open-modal');
-
-function openModal() {
-  modalOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevent scroll
-  
-  if (submitBtn && btnText) {
-    btnText.textContent = 'Loading slots...';
-    submitBtn.disabled = true;
-  }
-  
-  fetchBookedSlots().then(() => {
-    if (submitBtn && btnText) {
-      btnText.textContent = 'Start Your Session';
-      submitBtn.disabled = false;
-    }
-    const dateInput = document.getElementById('date');
-    if (dateInput && dateInput.value) {
-      dateInput.dispatchEvent(new Event('change'));
-    }
-  });
-}
-
-function closeModal() {
-  modalOverlay.classList.remove('active');
-  document.body.style.overflow = ''; // Restore scroll
-}
-
-openModalBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal();
-  });
-});
-
-closeModalBtn.addEventListener('click', closeModal);
-
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-    closeModal();
-  }
-});
-
-// ── Date Selection Logic for Sunday Slots ──────────────────────────────────
-const dateInput = document.getElementById('date');
-const timePrefSelect = document.getElementById('time-pref');
-
-if (dateInput && timePrefSelect) {
-  const allTimeOptions = Array.from(timePrefSelect.options);
-  
-  dateInput.addEventListener('change', (e) => {
-    const selectedDate = new Date(e.target.value);
-    const isSunday = !isNaN(selectedDate.getTime()) && selectedDate.getDay() === 0;
-    
-    const currentValue = timePrefSelect.value;
-    
-    timePrefSelect.innerHTML = '';
-    
-    const bookedForDate = bookedSlotsData
-      .filter(slot => slot.date === e.target.value)
-      .map(slot => slot.timePref);
-    
-    allTimeOptions.forEach(option => {
-      const optClone = option.cloneNode(true);
-      const isSundaySlot = optClone.value.includes('Sunday');
-      
-      if (isSundaySlot && !isSunday) {
-        return;
-      }
-      
-      if (optClone.value && bookedForDate.includes(optClone.value)) {
-        optClone.disabled = true;
-        optClone.style.color = 'red';
-        optClone.textContent = optClone.textContent.replace(' (Booked)', '') + ' (Booked)';
-      }
-      
-      timePrefSelect.appendChild(optClone);
-    });
-    
-    if (Array.from(timePrefSelect.options).some(opt => opt.value === currentValue && !opt.disabled)) {
-      timePrefSelect.value = currentValue;
-    } else {
-      timePrefSelect.value = "";
-    }
-  });
-
-  dateInput.dispatchEvent(new Event('change'));
-}
 
 // ── Form Submission ───────────────────────────────────────────────────────────
 const joinForm = document.getElementById('joinForm');
@@ -191,7 +54,8 @@ const btnText = submitBtn.querySelector('.btn-text');
 const btnLoading = submitBtn.querySelector('.btn-loading');
 const formSuccess = document.getElementById('formSuccess');
 
-// Google Sheets URL moved to top
+// Google Sheets Web App URL — replace with your deployed script URL
+const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 joinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -220,111 +84,46 @@ joinForm.addEventListener('submit', async (e) => {
   const formData = {
     displayName: joinForm.displayName.value.trim(),
     email: joinForm.email.value.trim(),
-    phone: joinForm.phone.value.trim(),
     language: joinForm.language.value,
     sessionType: joinForm.sessionType.value,
-    date: joinForm.date.value,
     timePref: joinForm.timePref.value,
+    camera: joinForm.camera.value,
+    message: joinForm.message.value.trim(),
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
   };
 
-  // ── Background Fetch: Track Initial Submit ──
-  if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-    fetch(GOOGLE_SHEET_URL, {
-      method: 'POST',
-      body: JSON.stringify({ ...formData, action: 'initiate' })
-    }).catch(err => console.error("Initiate error:", err)); // Fire and forget
+  // Show loading
+  btnText.style.display = 'none';
+  btnLoading.style.display = 'inline';
+  submitBtn.disabled = true;
+
+  try {
+    if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+      await fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    } else {
+      // Simulate network delay for demo
+      await new Promise((r) => setTimeout(r, 1200));
+    }
+
+    // Success
+    joinForm.style.display = 'none';
+    formSuccess.style.display = 'flex';
+    formSuccess.classList.add('visible');
+
+    // Scroll to success message
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (err) {
+    console.error('Submission error:', err);
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
+    submitBtn.disabled = false;
+    alert('Something went wrong. Please try again or contact us directly.');
   }
-
-  // ── Razorpay Integration ──
-  const RAZOR_KEY = 'rzp_live_SYWYNjycdq6eQv'; // Updated with Live Key
-  
-  const options = {
-    "key": RAZOR_KEY,
-    "amount": "39900", // 399 INR in paisa
-    "currency": "INR",
-    "name": "ManTalks",
-    "description": "Session Registration Fee",
-    "image": "logo.png", // Optional: your logo URL
-    "handler": async function (response) {
-      // Payment successful! Now send to Google Sheets
-      formData.paymentId = response.razorpay_payment_id;
-      formData.action = 'complete';
-      
-      // Show loading
-      btnText.style.display = 'none';
-      btnLoading.style.display = 'inline';
-      submitBtn.disabled = true;
-
-      try {
-        if (GOOGLE_SHEET_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-          // Retry fetch for network safety
-          let retries = 3;
-          let success = false;
-          let meetLink = '';
-          
-          while (retries > 0 && !success) {
-            try {
-              const res = await fetch(GOOGLE_SHEET_URL, {
-                method: 'POST',
-                // Avoid application/json content-type to prevent preflight CORS restriction for Apps Script
-                body: JSON.stringify(formData),
-              });
-              
-              const resText = await res.text();
-              try {
-                const jsonRes = JSON.parse(resText);
-                if (jsonRes.status === 'success' && jsonRes.meetLink) {
-                  meetLink = jsonRes.meetLink;
-                }
-              } catch (err) {
-                 console.log(resText);
-              }
-
-              success = true;
-            } catch (err) {
-              retries--;
-              if (retries === 0) throw err;
-              await new Promise(r => setTimeout(r, 2000));
-            }
-          }
-          
-          // Success
-          joinForm.style.display = 'none';
-          formSuccess.style.display = 'flex';
-          formSuccess.classList.add('visible');
-          
-          // Final: Redirect to WhatsApp after 3 seconds
-          setTimeout(() => {
-            const message = meetLink 
-              ? `Hi, I just registered for ManTalks. My Google Meet link is: ${meetLink}` 
-              : `Hi, I just registered for ManTalks. My Payment ID is: ${response.razorpay_payment_id}`;
-            const waText = encodeURIComponent(message);
-            window.location.href = `https://wa.me/919840600638?text=${waText}`;
-          }, 3000);
-          
-        } else {
-          alert('Configuration Incomplete: Please add your Google Apps Script URL in script.js');
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        alert('Data storage failed, but your payment was successful. Please contact us on WhatsApp with your Payment ID: ' + response.razorpay_payment_id);
-      }
-    },
-    "prefill": {
-      "name": formData.displayName,
-      "email": formData.email,
-      "contact": formData.phone
-    },
-    "theme": { "color": "#1A7F5A" }
-  };
-
-  const rzp = new Razorpay(options);
-  rzp.on('payment.failed', function (response) {
-    alert('Payment failed: ' + response.error.description);
-  });
-  
-  rzp.open();
 });
 
 // Remove error class on input
@@ -355,31 +154,6 @@ function animateStats() {
   statsObserver.observe(statsSection);
 }
 animateStats();
-
-function initHeroCarousel() {
-  const images = document.querySelectorAll('.hero-carousel-img');
-  const innerIcon = document.querySelector('.inner-icon');
-  if (images.length < 2 || !innerIcon) return;
-  
-  let currentIndex = 0;
-  setInterval(() => {
-    // 1. Start rotation
-    innerIcon.classList.add('rolling');
-    
-    // 2. Swap image after 0.6s (mid-rotation)
-    setTimeout(() => {
-      images[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.add('active');
-    }, 600);
-    
-    // 3. Remove class after animation ends (1.2s)
-    setTimeout(() => {
-      innerIcon.classList.remove('rolling');
-    }, 1200);
-  }, 5000); // Cycle every 5s
-}
-initHeroCarousel();
 
 // ── Floating card stagger animation  ─────────────────────────────────────────
 const floatingCards = document.querySelectorAll('.f-card');
