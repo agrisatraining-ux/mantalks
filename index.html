@@ -499,42 +499,41 @@
 
 <!-- Booking Modal (Hidden by Default) -->
 <div class="fixed inset-0 z-[100] hidden bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300" id="booking-modal">
-<div class="bg-surface-container max-w-2xl w-full p-8 md:p-12 rounded-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto border border-outline-variant/20">
+<div class="bg-surface-container max-w-2xl w-full p-6 md:p-8 rounded-2xl shadow-2xl relative max-h-[95vh] border border-outline-variant/20">
 <button class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface transition-colors duration-200" id="closeModal">
 <span class="material-symbols-outlined text-[24px]">close</span>
 </button>
-<div class="flex items-center gap-3 mb-6">
+<div class="flex items-center gap-3 mb-3">
     <img src="logo.png" alt="ManTalks Logo" class="rounded-full shadow-md aspect-square h-12 w-auto object-contain">
     <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter uppercase">MANTALKS</h1>
 </div>
-<h2 class="font-body-lg text-body-lg text-secondary mb-8">Session Request</h2>
+<h2 class="font-body-md text-body-md font-semibold text-secondary mb-3">Session Request</h2>
 
-<form class="space-y-8" id="joinForm" novalidate>
+<form class="space-y-4" id="joinForm" novalidate>
 <!-- Personal Info -->
-<div class="space-y-6">
+<div class="space-y-3">
 <div class="relative group">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="display-name">Full Name (or Alias)</label>
-<input id="display-name" name="displayName" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="John Doe" type="text" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="display-name">Full Name (or Alias)</label>
+<input id="display-name" name="displayName" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="John Doe" type="text" required/>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="relative group">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="email">Email</label>
-<input id="email" name="email" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="you@example.com" type="email" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="email">Email</label>
+<input id="email" name="email" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="you@example.com" type="email" required/>
 </div>
 <div class="relative group">
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="phone">Phone Number</label>
-<input id="phone" name="phone" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface transition-colors" placeholder="+91 98765 43210" type="tel" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="phone">Phone Number</label>
+<input id="phone" name="phone" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface transition-colors" placeholder="+91 98765 43210" type="tel" required/>
 </div>
 </div>
 </div>
-<!-- Divider -->
-<div class="w-full h-[1px] bg-outline-variant/20 my-8"></div>
+
 <!-- Preferences -->
-<div class="space-y-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="session-type">Session Type</label>
-<select id="session-type" name="sessionType" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="session-type">Session Type</label>
+<select id="session-type" name="sessionType" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select</option>
 <option value="vent">I want to vent</option>
 <option value="advice">I'd like peer advice</option>
@@ -542,22 +541,22 @@
 </select>
 </div>
 <div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="language">Language</label>
-<select id="language" name="language" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="language">Language</label>
+<select id="language" name="language" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select</option>
 <option value="english">English</option>
 <option value="tamil">Tamil</option>
 </select>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="date">Preferred Date</label>
-<input id="date" name="date" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface" type="date" required/>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="date">Preferred Date</label>
+<input id="date" name="date" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface" type="date" required/>
 </div>
 <div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="time-pref">Time Slot</label>
-<select id="time-pref" name="timePref" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer" required>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1" for="time-pref">Time Slot</label>
+<select id="time-pref" name="timePref" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg focus:border-secondary focus:ring-0 px-4 py-2 font-body-md text-body-md text-on-surface cursor-pointer" required>
 <option value="" disabled selected>Select time</option>
 <option value="morning">Morning (6am – 10am)</option>
 <option value="noon">Afternoon (12pm – 3pm)</option>
@@ -568,7 +567,7 @@
 </div>
 </div>
 <!-- Consent & Submit -->
-<div class="pt-6 space-y-8">
+<div class="pt-2 space-y-4">
 <label class="flex items-start gap-4 cursor-pointer group">
 <div class="relative flex items-start pt-1">
 <input id="consent" name="consent" class="peer sr-only" required type="checkbox"/>
@@ -580,7 +579,7 @@
                             I understand this is a peer-led listening space and not a medical/therapeutic service. I agree to the guidelines.
                         </span>
 </label>
-<button id="submit-btn" class="w-full bg-secondary text-white font-label-md text-label-md py-4 px-8 rounded-xl hover:shadow-[0_4px_20px_rgba(188,108,37,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2" type="submit">
+<button id="submit-btn" class="w-full bg-secondary text-white font-label-md text-label-md py-3 px-6 rounded-xl hover:shadow-[0_4px_15px_rgba(188,108,37,0.25)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2" type="submit">
                         <span class="btn-text">Confirm Booking (₹399)</span>
                         <span class="btn-loading" style="display:none">Processing...</span>
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
